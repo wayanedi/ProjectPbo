@@ -1,0 +1,21 @@
+git init --> buat local folder untuk github
+
+git clone http://github.com/wayanedi/myApp.git --> masuk ke repo user lain
+git remote add origin http://github.com/wayanedi/myApp.git --> remote git dari computer
+
+git config --global user.mail "email@gmail.com"
+git config --global user.name "nama"
+
+git checkout -b namabrach --> bikin branch baru
+
+git add 
+
+git status --> untuk cek status
+git commit -m 'change log'
+
+git push -u origin namabranch
+
+git branch --> lihat branch sekarang, branch sekarang tandanya *
+
+git fetch origin --> mengupdate lalu menimpa file local
+git reset --hard origin/master --> gatau apa tapi jalanin aja
