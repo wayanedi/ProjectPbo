@@ -6,6 +6,7 @@
 package projectpbo;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
@@ -20,19 +21,20 @@ import javax.swing.JOptionPane;
  */
 public class Database {
     
-    Connection con;
-    Statement stat;
-    ResultSet rs;
-    String sql;
+    private Connection con;
+    private Statement stat;
+    private ResultSet rs;
+    private String sql;
     
     public Database(){
-        ConnectionServices db = new ConnectionServices();  //panggil kelas koneksi ke db
-        
-        db.config(); //panggil methode config di objek db --> coba buat koneksi ke db
-        
-        // inisialisasi
-        con = db.con; 
-        stat = db.stm;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost/db_atm?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
+            stat = con.createStatement();
+//            JOptionPane.showMessageDialog(null, "Connection berhasil");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Connection Fail"+e.getMessage());
+        }
     }
     
     public boolean isValidUser(String username, String password)throws SQLException{
