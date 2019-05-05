@@ -41,8 +41,6 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
 
-        jTextField2.setText("kons");
-
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel3.setText("Login");
 
