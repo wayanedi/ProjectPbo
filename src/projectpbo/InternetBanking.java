@@ -16,6 +16,7 @@ public class InternetBanking extends javax.swing.JFrame {
      */
     public InternetBanking() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

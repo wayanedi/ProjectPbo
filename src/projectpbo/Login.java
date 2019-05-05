@@ -26,6 +26,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         db = new Database();
+        setLocationRelativeTo(null);
         
     }
 
