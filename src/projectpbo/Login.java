@@ -6,38 +6,27 @@
 package projectpbo;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.sql.Statement;
 
 /**
  *
  * @author anonymous
  */
 public class Login extends javax.swing.JFrame {
-    
-    Connection con;
-    Statement stat;
-    ResultSet rs;
-    String sql;
+ 
+    Database db;
     
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
-        ConnectionServices db = new ConnectionServices();  //panggil kelas koneksi ke db
+        db = new Database();
         
-        db.config(); //panggil methode config di objek db --> coba buat koneksi ke db
-        
-        // inisialisasi
-        con = db.con; 
-        stat = db.stm;
     }
 
     /**
@@ -128,19 +117,13 @@ public class Login extends javax.swing.JFrame {
 //        System.out.println(jPassword.getPassword());
         try {
             
-            sql = "SELECT `username`, `password` FROM `usr` WHERE `username` = '" + jUsername.getText() +"' and `password` = '"+String.valueOf(jPassword.getPassword())+"'";
-            rs = stat.executeQuery(sql);
-//            String a = new String(jPassword)
-            String passText = jPassword.getText();
-//                    new String(jPassword.getPassword());    
-  //          passText.equals(rs.Get)
-            if(rs.next()){
-                String pw= rs.getString("password");
-                
-                if(jUsername.getText().equals(rs.getString("username")) && passText.equals(pw)){ 
-                   JOptionPane.showMessageDialog(null, "Login Success!", "Success!", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }else{
+            if(db.isValidUser(jUsername.getText(), String.valueOf(jPassword.getPassword()))){
+                JOptionPane.showMessageDialog(null, "Login Success!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+                InternetBanking menu = new InternetBanking(); //comnet
+                this.setVisible(false);
+                menu.setVisible(true);
+            }
+            else{
                 JOptionPane.showMessageDialog(null, "Login Failed!", "Fail!", JOptionPane.INFORMATION_MESSAGE);
             }
             
@@ -149,40 +132,6 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_loginActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;
