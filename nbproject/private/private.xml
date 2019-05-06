@@ -3,9 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/home/aizaki/Documents/Project/ProjectPbo/src/projectpbo/Login.java</file>
             <file>file:/home/aizaki/Documents/Project/ProjectPbo/src/projectpbo/Database.java</file>
             <file>file:/home/aizaki/Documents/Project/ProjectPbo/src/projectpbo/InternetBanking.java</file>
+=======
+            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/ProjectPbo.java</file>
+            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/Login.java</file>
+            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/PanelTransfer.java</file>
+            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/PanelInfoRek.java</file>
+            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/Database.java</file>
+            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/PanelPembelian.java</file>
+            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/PanelPembayaran.java</file>
+            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/MainMessage.java</file>
+            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/InternetBanking.java</file>
+>>>>>>> master
         </group>
     </open-files>
 </project-private>
