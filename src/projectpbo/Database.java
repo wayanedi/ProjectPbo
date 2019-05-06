@@ -44,10 +44,8 @@ public class Database {
         
         sql = "SELECT `username`, `password` FROM `usr` WHERE `username` = '" + username +"' and `password` = '"+password+"'";
             rs = stat.executeQuery(sql);
-            
             if(rs.next()){
-                String pw= rs.getString("password");
-                
+                String pw= rs.getString("password");     
                 if(password.equals(pw) && username.equals(rs.getString("username"))){ 
                    return true;
                 }
