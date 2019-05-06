@@ -21,6 +21,7 @@ public class InternetBanking extends javax.swing.JFrame {
     PanelPembelian panelPembelian;
     PanelInfoRek panelInfoRek;
     MainMessage mainMessage;
+    
     GridBagLayout layout = new GridBagLayout();
     
     /**
@@ -35,6 +36,7 @@ public class InternetBanking extends javax.swing.JFrame {
         panelInfoRek = new PanelInfoRek();
         mainMessage = new MainMessage();
         
+        
         DinamicPanel.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();
 //        c.fill = GridBagConstraints.HORIZONTAL;  
@@ -46,7 +48,7 @@ public class InternetBanking extends javax.swing.JFrame {
         DinamicPanel.add(panelPembayaran,c);
         panelPembayaran.setVisible(false);
         
-         DinamicPanel.add(panelPembelian,c);
+        DinamicPanel.add(panelPembelian,c);
         panelPembelian.setVisible(false);
         
         DinamicPanel.add(panelInfoRek,c);
@@ -54,6 +56,8 @@ public class InternetBanking extends javax.swing.JFrame {
         
         DinamicPanel.add(mainMessage,c);
         mainMessage.setVisible(true);
+        
+        
     }
 
     /**
@@ -253,8 +257,8 @@ public class InternetBanking extends javax.swing.JFrame {
                     .addGroup(sidepanelLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel7)))
-                .addGap(54, 54, 54)
-                .addComponent(btn_informasi, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addGap(66, 66, 66)
+                .addComponent(btn_informasi, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_trans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
