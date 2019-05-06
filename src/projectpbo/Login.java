@@ -53,6 +53,8 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
 
+        jUsername.setText("admin");
+
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel3.setText("Login");
 
@@ -62,6 +64,8 @@ public class Login extends javax.swing.JFrame {
                 btn_loginActionPerformed(evt);
             }
         });
+
+        jPassword.setText("1234");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -5,6 +5,8 @@
  */
 package projectpbo;
 
+import java.awt.GridBagLayout; 
+import java.awt.GridBagConstraints;
 import javax.swing.JPanel;
 import java.awt.Color;
 
@@ -13,13 +15,45 @@ import java.awt.Color;
  * @author anonymous
  */
 public class InternetBanking extends javax.swing.JFrame {
-
+   
+    PanelTransfer panelTransfer;
+    PanelPembayaran panelPembayaran;
+    PanelPembelian panelPembelian;
+    PanelInfoRek panelInfoRek;
+    MainMessage mainMessage;
+    GridBagLayout layout = new GridBagLayout();
+    
     /**
      * Creates new form InternetBanking
      */
     public InternetBanking() {
         initComponents();
         setLocationRelativeTo(null);
+        panelTransfer = new PanelTransfer();
+        panelPembayaran = new PanelPembayaran();
+        panelPembelian = new PanelPembelian();
+        panelInfoRek = new PanelInfoRek();
+        mainMessage = new MainMessage();
+        
+        DinamicPanel.setLayout(layout);
+        GridBagConstraints c = new GridBagConstraints();
+//        c.fill = GridBagConstraints.HORIZONTAL;  
+        c.gridx = 0;
+        c.gridy =0;
+        DinamicPanel.add(panelTransfer,c);
+        panelTransfer.setVisible(false);
+ 
+        DinamicPanel.add(panelPembayaran,c);
+        panelPembayaran.setVisible(false);
+        
+         DinamicPanel.add(panelPembelian,c);
+        panelPembelian.setVisible(false);
+        
+        DinamicPanel.add(panelInfoRek,c);
+        panelInfoRek.setVisible(false);
+        
+        DinamicPanel.add(mainMessage,c);
+        mainMessage.setVisible(true);
     }
 
     /**
@@ -31,7 +65,7 @@ public class InternetBanking extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        parent = new javax.swing.JPanel();
+        DinamicPanel = new javax.swing.JPanel();
         sidepanel = new javax.swing.JPanel();
         btn_informasi = new javax.swing.JPanel();
         ind_info = new javax.swing.JPanel();
@@ -48,10 +82,22 @@ public class InternetBanking extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        DinamicPanel.setName("dinamicPanel"); // NOI18N
+        DinamicPanel.setPreferredSize(new java.awt.Dimension(980, 505));
+
+        javax.swing.GroupLayout DinamicPanelLayout = new javax.swing.GroupLayout(DinamicPanel);
+        DinamicPanel.setLayout(DinamicPanelLayout);
+        DinamicPanelLayout.setHorizontalGroup(
+            DinamicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 980, Short.MAX_VALUE)
+        );
+        DinamicPanelLayout.setVerticalGroup(
+            DinamicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         sidepanel.setBackground(new java.awt.Color(61, 61, 61));
 
@@ -182,21 +228,18 @@ public class InternetBanking extends javax.swing.JFrame {
         sidepanel.setLayout(sidepanelLayout);
         sidepanelLayout.setHorizontalGroup(
             sidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_informasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_informasi, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btn_trans, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_pembayaran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_pembelian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(sidepanelLayout.createSequentialGroup()
-                .addGroup(sidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(sidepanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel2))
-                    .addGroup(sidepanelLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jLabel2))
+            .addGroup(sidepanelLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7))
         );
         sidepanelLayout.setVerticalGroup(
             sidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,60 +254,32 @@ public class InternetBanking extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jLabel7)))
                 .addGap(54, 54, 54)
-                .addComponent(btn_informasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_informasi, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_trans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_pembayaran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_pembelian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
-        );
-
-        jLabel8.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
-        jLabel8.setText("NAMA USER");
-
-        jLabel9.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
-        jLabel9.setText("WELCOME TO INTERNET BANKING BANK-BANK");
-
-        javax.swing.GroupLayout parentLayout = new javax.swing.GroupLayout(parent);
-        parent.setLayout(parentLayout);
-        parentLayout.setHorizontalGroup(
-            parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(parentLayout.createSequentialGroup()
-                .addComponent(sidepanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 393, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(354, 354, 354))
-            .addGroup(parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, parentLayout.createSequentialGroup()
-                    .addContainerGap(360, Short.MAX_VALUE)
-                    .addComponent(jLabel9)
-                    .addGap(68, 68, 68)))
-        );
-        parentLayout.setVerticalGroup(
-            parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, parentLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(198, 198, 198))
-            .addGroup(parentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(parentLayout.createSequentialGroup()
-                    .addGap(155, 155, 155)
-                    .addComponent(jLabel9)
-                    .addContainerGap(295, Short.MAX_VALUE)))
+                .addGap(176, 176, 176))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(parent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(sidepanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DinamicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(parent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(DinamicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sidepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -281,6 +296,9 @@ public class InternetBanking extends javax.swing.JFrame {
         ind_pembayaran.setOpaque(false);    //set garis yang ada di kiri tulisan informasi biar invisible
         ind_pembelian.setOpaque(false);     //set garis yang ada di kiri tulisan informasi biar invisible
         ind_trans.setOpaque(false);         //set garis yang ada di kiri tulisan informasi biar invisible
+        
+        
+        setVisiblePanel(false, false, false, false, true);
     }//GEN-LAST:event_btn_informasiMousePressed
 
     private void btn_transMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_transMousePressed
@@ -294,6 +312,8 @@ public class InternetBanking extends javax.swing.JFrame {
         ind_pembayaran.setOpaque(false);
         ind_pembelian.setOpaque(false);
         ind_trans.setOpaque(true);
+        
+        setVisiblePanel(false, true, false, false, false);
     }//GEN-LAST:event_btn_transMousePressed
 
     private void btn_pembayaranMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_pembayaranMousePressed
@@ -307,6 +327,8 @@ public class InternetBanking extends javax.swing.JFrame {
         ind_pembayaran.setOpaque(true);
         ind_pembelian.setOpaque(false);
         ind_trans.setOpaque(false);
+        
+        setVisiblePanel(false, false, true, false, false);
     }//GEN-LAST:event_btn_pembayaranMousePressed
 
     private void btn_pembelianMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_pembelianMousePressed
@@ -320,6 +342,8 @@ public class InternetBanking extends javax.swing.JFrame {
         ind_pembayaran.setOpaque(false);
         ind_pembelian.setOpaque(true);
         ind_trans.setOpaque(false);
+        
+        setVisiblePanel(false, false, false, true, false);
     }//GEN-LAST:event_btn_pembelianMousePressed
 
     /**
@@ -357,6 +381,17 @@ public class InternetBanking extends javax.swing.JFrame {
         });
     }
     
+    //setVisible Panel
+    
+    private void setVisiblePanel(boolean message, boolean transfer, boolean pembayaran, boolean pembelian, boolean info){
+        
+        mainMessage.setVisible(message);
+        panelTransfer.setVisible(transfer);
+        panelPembayaran.setVisible(pembayaran);
+        panelPembelian.setVisible(pembelian);
+        panelInfoRek.setVisible(info);
+        
+    }
     
     //set reset background color
     private void setColor(JPanel panel){
@@ -367,6 +402,7 @@ public class InternetBanking extends javax.swing.JFrame {
         panel.setBackground(new Color(61,61,61));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel DinamicPanel;
     private javax.swing.JPanel btn_informasi;
     private javax.swing.JPanel btn_pembayaran;
     private javax.swing.JPanel btn_pembelian;
@@ -382,9 +418,6 @@ public class InternetBanking extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel parent;
     private javax.swing.JPanel sidepanel;
     // End of variables declaration//GEN-END:variables
 }
