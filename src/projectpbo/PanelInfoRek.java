@@ -53,14 +53,12 @@ public class PanelInfoRek extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jTabbedPanel = new javax.swing.JTabbedPane();
         Informasi_menu = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jComboBox = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -74,19 +72,6 @@ public class PanelInfoRek extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(980, 505));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1010, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -70, 1010, 130));
-
         jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel13.setText("No. Rekening :");
 
@@ -99,16 +84,14 @@ public class PanelInfoRek extends javax.swing.JPanel {
                 jComboBoxMouseClicked(evt);
             }
         });
+        jComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxActionPerformed(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel16.setText("Jenis Transaksi");
-
-        jButton1.setText("Oke");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel17.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel17.setText("no rek");
@@ -139,20 +122,18 @@ public class PanelInfoRek extends javax.swing.JPanel {
                             .addGroup(Informasi_menuLayout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addGap(36, 36, 36)
-                                .addGroup(Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(Informasi_menuLayout.createSequentialGroup()
-                        .addGap(236, 236, 236)
+                        .addGap(229, 229, 229)
                         .addComponent(jLabel1)))
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
         Informasi_menuLayout.setVerticalGroup(
             Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Informasi_menuLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(66, 66, 66)
+                .addGap(91, 91, 91)
                 .addGroup(Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(jLabel17))
@@ -164,9 +145,7 @@ public class PanelInfoRek extends javax.swing.JPanel {
                 .addGroup(Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
 
         jTabbedPanel.addTab("tab1", Informasi_menu);
@@ -186,21 +165,20 @@ public class PanelInfoRek extends javax.swing.JPanel {
         MutasiLayout.setHorizontalGroup(
             MutasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MutasiLayout.createSequentialGroup()
-                .addGroup(MutasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MutasiLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MutasiLayout.createSequentialGroup()
-                        .addGap(405, 405, 405)
-                        .addComponent(jLabel14)))
-                .addContainerGap(401, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(840, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MutasiLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel14)
+                .addGap(398, 398, 398))
         );
         MutasiLayout.setVerticalGroup(
             MutasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MutasiLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 355, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(101, 101, 101))
         );
@@ -236,7 +214,7 @@ public class PanelInfoRek extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProfileLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 355, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addGap(101, 101, 101))
         );
@@ -245,7 +223,7 @@ public class PanelInfoRek extends javax.swing.JPanel {
         Profile.getAccessibleContext().setAccessibleName("");
         Profile.getAccessibleContext().setAccessibleDescription("");
 
-        add(jTabbedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 18, 1010, 530));
+        add(jTabbedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -42, 1010, 590));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxMouseClicked
@@ -253,17 +231,6 @@ public class PanelInfoRek extends javax.swing.JPanel {
         int n=jComboBox.getSelectedIndex();
         System.out.println(jComboBox.getSelectedItem());
     }//GEN-LAST:event_jComboBoxMouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        if(jComboBox.getSelectedIndex()==1){
-           jTabbedPanel.setSelectedIndex(1);
-        }
-        
-        if(jComboBox.getSelectedIndex()==2){
-            jTabbedPanel.setSelectedIndex(2);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -274,6 +241,17 @@ public class PanelInfoRek extends javax.swing.JPanel {
         // TODO add your handling code here:
         jTabbedPanel.setSelectedIndex(0);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxActionPerformed
+        // TODO add your handling code here:
+        if(jComboBox.getSelectedIndex()==1){
+           jTabbedPanel.setSelectedIndex(1);
+        }
+        
+        if(jComboBox.getSelectedIndex()==2){
+            jTabbedPanel.setSelectedIndex(2);
+        }
+    }//GEN-LAST:event_jComboBoxActionPerformed
 
 //    
 //     private void setVisiblePanel(boolean info, boolean mutasi){
@@ -287,7 +265,6 @@ public class PanelInfoRek extends javax.swing.JPanel {
     private javax.swing.JPanel Informasi_menu;
     private javax.swing.JPanel Mutasi;
     private javax.swing.JPanel Profile;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox;
@@ -299,7 +276,6 @@ public class PanelInfoRek extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPanel;
     // End of variables declaration//GEN-END:variables
 }
