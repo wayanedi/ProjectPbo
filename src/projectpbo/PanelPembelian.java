@@ -32,14 +32,12 @@ public class PanelPembelian extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         jLabel13 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelMain = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jPanelPulsa = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
@@ -49,8 +47,11 @@ public class PanelPembelian extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jSpinner1 = new javax.swing.JSpinner();
+        jLabel9 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanelTicket = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         jScrollPane2.setViewportView(jTextPane1);
 
@@ -61,19 +62,6 @@ public class PanelPembelian extends javax.swing.JPanel {
         jLabel13.setText("Panel Pembelian");
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1470, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -70, 1470, 120));
-
         jLabel1.setText("Jenis Pembelian");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "Pulsa", "Ticket" }));
@@ -83,42 +71,38 @@ public class PanelPembelian extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
+        jLabel8.setText("PEMBELIAN");
 
         javax.swing.GroupLayout jPanelMainLayout = new javax.swing.GroupLayout(jPanelMain);
         jPanelMain.setLayout(jPanelMainLayout);
         jPanelMainLayout.setHorizontalGroup(
             jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMainLayout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(289, 289, 289)
                 .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(531, Short.MAX_VALUE))
+                    .addGroup(jPanelMainLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelMainLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel8)))
+                .addContainerGap(374, Short.MAX_VALUE))
         );
         jPanelMainLayout.setVerticalGroup(
             jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMainLayout.createSequentialGroup()
-                .addGap(145, 145, 145)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel8)
+                .addGap(114, 114, 114)
                 .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(jButton1)
-                .addContainerGap(309, Short.MAX_VALUE))
+                .addContainerGap(367, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Main", jPanelMain);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel4.setText("PEMBELIAN PULSA");
 
         jLabel3.setText("Penyedia Layanan");
 
@@ -136,6 +120,16 @@ public class PanelPembelian extends javax.swing.JPanel {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
+        jLabel9.setText("PULSA");
+
+        jButton1.setText("Kembali");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelPulsaLayout = new javax.swing.GroupLayout(jPanelPulsa);
         jPanelPulsa.setLayout(jPanelPulsaLayout);
         jPanelPulsaLayout.setHorizontalGroup(
@@ -143,29 +137,34 @@ public class PanelPembelian extends javax.swing.JPanel {
             .addGroup(jPanelPulsaLayout.createSequentialGroup()
                 .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelPulsaLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel4))
+                        .addGap(50, 50, 50)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelPulsaLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
+                        .addGap(285, 285, 285)
                         .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(605, Short.MAX_VALUE))
+                            .addGroup(jPanelPulsaLayout.createSequentialGroup()
+                                .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7))
+                                .addGap(35, 35, 35)
+                                .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelPulsaLayout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addComponent(jLabel9)))))
+                .addContainerGap(331, Short.MAX_VALUE))
         );
         jPanelPulsaLayout.setVerticalGroup(
             jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPulsaLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel4)
-                .addGap(30, 30, 30)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel9)
+                .addGap(22, 22, 22)
                 .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -181,68 +180,89 @@ public class PanelPembelian extends javax.swing.JPanel {
                 .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addComponent(jButton1)
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Pulsa", jPanelPulsa);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("PEMBELIAN TICKET");
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
+        jLabel10.setText("TIKET");
+
+        jButton2.setText("Kembali");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelTicketLayout = new javax.swing.GroupLayout(jPanelTicket);
         jPanelTicket.setLayout(jPanelTicketLayout);
         jPanelTicketLayout.setHorizontalGroup(
             jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTicketLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel2)
-                .addContainerGap(800, Short.MAX_VALUE))
+                .addGroup(jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelTicketLayout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelTicketLayout.createSequentialGroup()
+                        .addGap(394, 394, 394)
+                        .addComponent(jLabel10)))
+                .addContainerGap(491, Short.MAX_VALUE))
         );
         jPanelTicketLayout.setVerticalGroup(
             jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTicketLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel2)
-                .addContainerGap(490, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(201, 201, 201))
         );
 
         jTabbedPane1.addTab("Ticket", jPanelTicket);
 
-        add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 20, 1040, 580));
+        add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1040, 640));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
            // TODO add your handling code here:
-           if(jComboBox1.getSelectedItem().equals("Pulsa")){
-               menu=1;
-           }else if(jComboBox1.getSelectedItem().equals("Ticket")){
-               menu=2;
-           }
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        if(menu==1){
-            jTabbedPane1.setSelectedIndex(1);
-        }else if(menu==2){
+           
+        if(jComboBox1.getSelectedIndex()==1){
+           jTabbedPane1.setSelectedIndex(1);
+        }
+        
+        if(jComboBox1.getSelectedIndex()==2){
             jTabbedPane1.setSelectedIndex(2);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanelMain;
     private javax.swing.JPanel jPanelPulsa;
     private javax.swing.JPanel jPanelTicket;
