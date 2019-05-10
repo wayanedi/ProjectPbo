@@ -48,7 +48,6 @@ public class Database {
                 if(password.equals(pw) && username.equals(rs.getString("username"))){
                     ds = new DatabaseNasabah[2];
                     ds = getData();
-                    System.out.println(ds[0].getNamaNasabah());
                    return true;
                 }
             }else{
@@ -67,5 +66,9 @@ public class Database {
                i++;
             }
         return databaseNasabah;
+    }
+    
+    public DatabaseNasabah[] getDs()throws SQLException{
+        return ds;
     }
 }
