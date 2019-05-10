@@ -117,12 +117,13 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        Connection cons;
-        PreparedStatement ps;
+//        Connection cons;
+//        PreparedStatement ps;
 //        System.out.println(jPassword.getPassword());
         try {
             
             if(db.isValidUser(jUsername.getText(), String.valueOf(jPassword.getPassword()))){
+                
                 JOptionPane.showMessageDialog(null, "Login Success!", "Success!", JOptionPane.INFORMATION_MESSAGE);
                 InternetBanking menu = new InternetBanking(); //comnet
                 this.setVisible(false);
