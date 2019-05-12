@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
  
     Database db;
+    private DatabaseNasabah databaseNasabah;
     
     /**
      * Creates new form Login
@@ -125,7 +126,8 @@ public class Login extends javax.swing.JFrame {
             if(db.isValidUser(jUsername.getText(), String.valueOf(jPassword.getPassword()))){
                 
                 JOptionPane.showMessageDialog(null, "Login Success!", "Success!", JOptionPane.INFORMATION_MESSAGE);
-                InternetBanking menu = new InternetBanking(); //comnet
+                databaseNasabah = db.getData();
+                InternetBanking menu = new InternetBanking(databaseNasabah); //comnet
                 this.setVisible(false);
                 menu.setVisible(true);
             }

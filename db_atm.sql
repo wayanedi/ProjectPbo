@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: May 05, 2019 at 05:19 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 12 Bulan Mei 2019 pada 07.23
+-- Versi server: 10.1.35-MariaDB
+-- Versi PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_pekerja`
+-- Struktur dari tabel `data_pekerja`
 --
 
 CREATE TABLE `data_pekerja` (
@@ -41,7 +41,7 @@ CREATE TABLE `data_pekerja` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log`
+-- Struktur dari tabel `log`
 --
 
 CREATE TABLE `log` (
@@ -55,152 +55,119 @@ CREATE TABLE `log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nasabah`
+-- Struktur dari tabel `nasabah`
 --
 
 CREATE TABLE `nasabah` (
-  `id_nasabah` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nama_lengkap` varchar(255) DEFAULT NULL,
   `no_tlp` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `ibu_kandung` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `nasabah`
+--
+
+INSERT INTO `nasabah` (`id_user`, `nama_lengkap`, `no_tlp`, `email`, `ibu_kandung`) VALUES
+(1, 'wayan edi sudarma', '081311902630', 'wayan.sudarma@ti.ukdw.ac.id', 'asasaasasas');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rekening`
+-- Struktur dari tabel `rekening`
 --
 
 CREATE TABLE `rekening` (
-  `no_rekening` int(11) NOT NULL,
-  `id_nasabah` int(11) DEFAULT NULL,
+  `no_rekening` varchar(11) NOT NULL,
+  `id_user` int(11) DEFAULT NULL,
   `id_pekerjaan` int(11) DEFAULT NULL,
   `jenis_rekening` enum('biasa','bisnis') DEFAULT NULL,
   `saldo` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `rekening`
+--
+
+INSERT INTO `rekening` (`no_rekening`, `id_user`, `id_pekerjaan`, `jenis_rekening`, `saldo`) VALUES
+('10291092121', 1, 1, 'biasa', 1000000);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usr`
+-- Struktur dari tabel `usr`
 --
 
 CREATE TABLE `usr` (
-  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `username` varchar(16) DEFAULT NULL,
-  `password` varchar(16) DEFAULT NULL,
-  `id_nasabah` int(11) DEFAULT NULL
+  `password` varchar(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `usr`
+-- Dumping data untuk tabel `usr`
 --
 
-INSERT INTO `usr` (`id`, `username`, `password`, `id_nasabah`) VALUES
-(1, 'admin', '1234', NULL);
+INSERT INTO `usr` (`id_user`, `username`, `password`) VALUES
+(1, 'admin', '1234');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `data_pekerja`
+-- Indeks untuk tabel `data_pekerja`
 --
 ALTER TABLE `data_pekerja`
-  ADD PRIMARY KEY (`id_pekerja`),
-  ADD KEY `FK_ID_NASABAH` (`id_nasabah`);
+  ADD PRIMARY KEY (`id_pekerja`);
 
 --
--- Indexes for table `log`
+-- Indeks untuk tabel `log`
 --
 ALTER TABLE `log`
-  ADD PRIMARY KEY (`id_log`),
-  ADD KEY `FK_ID_USER` (`id_user`);
+  ADD PRIMARY KEY (`id_log`);
 
 --
--- Indexes for table `nasabah`
+-- Indeks untuk tabel `nasabah`
 --
 ALTER TABLE `nasabah`
-  ADD PRIMARY KEY (`id_nasabah`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `rekening`
+-- Indeks untuk tabel `rekening`
 --
 ALTER TABLE `rekening`
-  ADD PRIMARY KEY (`no_rekening`),
-  ADD KEY `FK_ID_NASABAH_2` (`id_nasabah`),
-  ADD KEY `FK_ID_PEKERJA` (`id_pekerjaan`);
+  ADD PRIMARY KEY (`no_rekening`);
 
 --
--- Indexes for table `usr`
+-- Indeks untuk tabel `usr`
 --
 ALTER TABLE `usr`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_ID_NASABAH_3` (`id_nasabah`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `data_pekerja`
+-- AUTO_INCREMENT untuk tabel `data_pekerja`
 --
 ALTER TABLE `data_pekerja`
   MODIFY `id_pekerja` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `log`
+-- AUTO_INCREMENT untuk tabel `log`
 --
 ALTER TABLE `log`
   MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `nasabah`
---
-ALTER TABLE `nasabah`
-  MODIFY `id_nasabah` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `rekening`
---
-ALTER TABLE `rekening`
-  MODIFY `no_rekening` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `usr`
+-- AUTO_INCREMENT untuk tabel `usr`
 --
 ALTER TABLE `usr`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `data_pekerja`
---
-ALTER TABLE `data_pekerja`
-  ADD CONSTRAINT `FK_ID_NASABAH` FOREIGN KEY (`id_nasabah`) REFERENCES `nasabah` (`id_nasabah`);
-
---
--- Constraints for table `log`
---
-ALTER TABLE `log`
-  ADD CONSTRAINT `FK_ID_USER` FOREIGN KEY (`id_user`) REFERENCES `usr` (`id`);
-
---
--- Constraints for table `rekening`
---
-ALTER TABLE `rekening`
-  ADD CONSTRAINT `FK_ID_NASABAH_2` FOREIGN KEY (`id_nasabah`) REFERENCES `nasabah` (`id_nasabah`),
-  ADD CONSTRAINT `FK_ID_PEKERJA` FOREIGN KEY (`id_pekerjaan`) REFERENCES `data_pekerja` (`id_pekerja`);
-
---
--- Constraints for table `usr`
---
-ALTER TABLE `usr`
-  ADD CONSTRAINT `FK_ID_NASABAH_3` FOREIGN KEY (`id_nasabah`) REFERENCES `nasabah` (`id_nasabah`);
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
