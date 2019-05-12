@@ -5,6 +5,12 @@
  */
 package projectpbo;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Window;
+import javax.swing.JPanel;
+import java.awt.Color;
+
 /**
  *
  * @author anonymous
@@ -14,10 +20,30 @@ public class PanelInfoRek extends javax.swing.JPanel {
     /**
      * Creates new form PanelInfoRek
      */
+//    InternetBanking a = new InternetBanking();
+//    PanelInfoRek panelInfoRek;
+////    PanelInfoRek_Mutasi PanelIndoRek_Mutasi;
+//    GridBagLayout layout = new GridBagLayout();
+
     public PanelInfoRek() {
         initComponents();
+//      setLocationRelativeTo(null);
+//        PanelIndoRek_Mutasi= new PanelInfoRek_Mutasi();
+        
+//        DinamicPanel.setLayout(layout);
+//        GridBagConstraints c = new GridBagConstraints();
+////        c.fill = GridBagConstraints.HORIZONTAL;  
+//        c.gridx = 0;
+//        c.gridy =0;
+//        
+//        DinamicPanel.add(panelInfoRek,c);
+//        panelInfoRek.setVisible(false);
+//        
+//        DinamicPanel.add(PanelIndoRek_Mutasi,c);
+//        PanelIndoRek_Mutasi.setVisible(true);
+//        
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,33 +53,229 @@ public class PanelInfoRek extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPanel = new javax.swing.JTabbedPane();
+        Informasi_menu = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jComboBox = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        Mutasi = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        Profile = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(980, 505));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
-        jLabel13.setText("panel info rekening");
+        jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        jLabel13.setText("No. Rekening :");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(325, 325, 325)
-                .addComponent(jLabel13)
-                .addContainerGap(358, Short.MAX_VALUE))
+        jLabel15.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        jLabel15.setText("Nama              :");
+
+        jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---- Pilih Transaksi ----", "Mutasi Rekening", "Lihat Profile" }));
+        jComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBoxMouseClicked(evt);
+            }
+        });
+        jComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel16.setText("Jenis Transaksi");
+
+        jLabel17.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        jLabel17.setText("no rek");
+
+        jLabel18.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        jLabel18.setText("nama user");
+
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
+        jLabel1.setText("INFORMASI UTAMA");
+
+        javax.swing.GroupLayout Informasi_menuLayout = new javax.swing.GroupLayout(Informasi_menu);
+        Informasi_menu.setLayout(Informasi_menuLayout);
+        Informasi_menuLayout.setHorizontalGroup(
+            Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Informasi_menuLayout.createSequentialGroup()
+                .addGroup(Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Informasi_menuLayout.createSequentialGroup()
+                        .addGap(201, 201, 201)
+                        .addGroup(Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Informasi_menuLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel17))
+                            .addGroup(Informasi_menuLayout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel18))
+                            .addGroup(Informasi_menuLayout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(36, 36, 36)
+                                .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(Informasi_menuLayout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addComponent(jLabel1)))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        Informasi_menuLayout.setVerticalGroup(
+            Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Informasi_menuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13)
-                .addContainerGap(445, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addGap(91, 91, 91)
+                .addGroup(Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel17))
+                .addGap(18, 18, 18)
+                .addGroup(Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel18))
+                .addGap(15, 15, 15)
+                .addGroup(Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
+
+        jTabbedPanel.addTab("tab1", Informasi_menu);
+
+        jButton2.setText("Kembali");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
+        jLabel14.setText("MUTASI");
+
+        javax.swing.GroupLayout MutasiLayout = new javax.swing.GroupLayout(Mutasi);
+        Mutasi.setLayout(MutasiLayout);
+        MutasiLayout.setHorizontalGroup(
+            MutasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MutasiLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(840, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MutasiLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel14)
+                .addGap(398, 398, 398))
+        );
+        MutasiLayout.setVerticalGroup(
+            MutasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MutasiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 355, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(101, 101, 101))
+        );
+
+        jTabbedPanel.addTab("tab2", Mutasi);
+
+        jButton3.setText("Kembali");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
+        jLabel19.setText("PROFILE");
+
+        javax.swing.GroupLayout ProfileLayout = new javax.swing.GroupLayout(Profile);
+        Profile.setLayout(ProfileLayout);
+        ProfileLayout.setHorizontalGroup(
+            ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProfileLayout.createSequentialGroup()
+                .addGroup(ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ProfileLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ProfileLayout.createSequentialGroup()
+                        .addGap(413, 413, 413)
+                        .addComponent(jLabel19)))
+                .addContainerGap(377, Short.MAX_VALUE))
+        );
+        ProfileLayout.setVerticalGroup(
+            ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProfileLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 355, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(101, 101, 101))
+        );
+
+        jTabbedPanel.addTab("tab3", Profile);
+        Profile.getAccessibleContext().setAccessibleName("");
+        Profile.getAccessibleContext().setAccessibleDescription("");
+
+        add(jTabbedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -42, 1010, 590));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxMouseClicked
+        // TODO add your handling code here:
+        int n=jComboBox.getSelectedIndex();
+        System.out.println(jComboBox.getSelectedItem());
+    }//GEN-LAST:event_jComboBoxMouseClicked
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPanel.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPanel.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxActionPerformed
+        // TODO add your handling code here:
+        if(jComboBox.getSelectedIndex()==1){
+           jTabbedPanel.setSelectedIndex(1);
+        }
+        
+        if(jComboBox.getSelectedIndex()==2){
+            jTabbedPanel.setSelectedIndex(2);
+        }
+    }//GEN-LAST:event_jComboBoxActionPerformed
+
+//    
+//     private void setVisiblePanel(boolean info, boolean mutasi){
+//        this.setVisible(info);
+//        PanelIndoRek_Mutasi.setVisible(mutasi);
+//        
+//    }
+//     
+//    private javax.swing.JPanel DinamicPanel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Informasi_menu;
+    private javax.swing.JPanel Mutasi;
+    private javax.swing.JPanel Profile;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JTabbedPane jTabbedPanel;
     // End of variables declaration//GEN-END:variables
 }
