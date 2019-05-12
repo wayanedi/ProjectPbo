@@ -11,15 +11,16 @@ package projectpbo;
  */
 public class MainMessage extends javax.swing.JPanel {
         private Database ds;
-        private DatabaseNasabah[] dn;
     /** 
      * Creates new form MainMessage
      */
     public MainMessage() {
         initComponents();
-//        this.dn = ds.getData();
-//        dn = new DatabaseNasabah[];
-//        ds.getDs();
+    }
+    
+    public MainMessage(DatabaseNasabah databaseNasabah) {
+        initComponents();
+        label_user.setText(databaseNasabah.getNamaNasabah());
     }
 
     /**
@@ -31,14 +32,14 @@ public class MainMessage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel13 = new javax.swing.JLabel();
+        label_user = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(980, 505));
 
-        jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
-        jLabel13.setText("USER");
+        label_user.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        label_user.setText("USER");
 
         jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabel14.setText("MENU UTAMA");
@@ -52,7 +53,7 @@ public class MainMessage extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(428, 428, 428)
-                .addComponent(jLabel13)
+                .addComponent(label_user)
                 .addContainerGap(460, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -69,7 +70,7 @@ public class MainMessage extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(194, 194, 194)
-                .addComponent(jLabel13)
+                .addComponent(label_user)
                 .addContainerGap(269, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -86,8 +87,8 @@ public class MainMessage extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel label_user;
     // End of variables declaration//GEN-END:variables
 }

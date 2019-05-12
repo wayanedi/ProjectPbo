@@ -17,6 +17,7 @@ import java.awt.Color;
  */
 public class InternetBanking extends javax.swing.JFrame {
    
+    private DatabaseNasabah databaseNasabah;
     PanelTransfer panelTransfer;
     PanelPembayaran panelPembayaran;
     PanelPembelian panelPembelian;
@@ -27,14 +28,17 @@ public class InternetBanking extends javax.swing.JFrame {
     /**
      * Creates new form InternetBanking
      */
-    public InternetBanking() {
+    
+    public InternetBanking(DatabaseNasabah dbNasabah){
+        
         initComponents();
         setLocationRelativeTo(null);
+        databaseNasabah = dbNasabah;
         panelTransfer = new PanelTransfer();
         panelPembayaran = new PanelPembayaran();
         panelPembelian = new PanelPembelian();
         panelInfoRek = new PanelInfoRek();
-        mainMessage = new MainMessage();
+        mainMessage = new MainMessage(databaseNasabah);
         
         DinamicPanel.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();
@@ -55,6 +59,10 @@ public class InternetBanking extends javax.swing.JFrame {
         
         DinamicPanel.add(mainMessage,c);
         mainMessage.setVisible(true);
+        
+    }
+    public InternetBanking() {
+        
     }
 
     /**

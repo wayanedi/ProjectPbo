@@ -25,10 +25,10 @@ public class Database {
     private Statement stat;
     private ResultSet rs;
     private String sql;
-    private DatabaseNasabah databaseNasabah[];
-    private DatabaseNasabah ds[];
+    private DatabaseNasabah databaseNasabah;
     
     public Database(){
+        databaseNasabah = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost/db_atm?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
@@ -46,8 +46,6 @@ public class Database {
             if(rs.next()){
                 String pw= rs.getString("password");     
                 if(password.equals(pw) && username.equals(rs.getString("username"))){
-                    ds = new DatabaseNasabah[2];
-                    ds = getData();
                    return true;
                 }
             }else{
@@ -56,19 +54,17 @@ public class Database {
         return false;
     }
     
-    public DatabaseNasabah[] getData()throws SQLException{
-        databaseNasabah = new DatabaseNasabah[2];
-        sql = "SELECT data_pekerja.jenis_pekerjaan, data_pekerja.nama_kantor, data_pekerja.jabatan, data_pekerja.alamat_kantor, data_pekerja.pendapatan, rekening.no_rekening, rekening.id_nasabah, rekening.id_pekerjaan, rekening.jenis_rekening, rekening.saldo FROM `rekening` INNER JOIN `data_pekerja` on data_pekerja.id_pekerja = rekening.id_pekerjaan";
+    public DatabaseNasabah getData()throws SQLException{
+        sql = "SELECT * FROM usr INNER JOIN nasabah on usr.id_user = nasabah.id_user INNER JOIN rekening on nasabah.id_user = rekening.id_user where usr.id_user=1";
             rs = stat.executeQuery(sql);
             if(rs.next()){
-               int i=0;
-               databaseNasabah[i] = new DatabaseNasabah(rs.getString("no_rekening"), rs.getString("jenis_rekening"), rs.getDouble("saldo"));
-               i++;
+               databaseNasabah = new DatabaseNasabah(rs.getString("nasabah.nama_lengkap"), rs.getString("rekening.no_rekening"), rs.getDouble("rekening.saldo"));
+               
             }
         return databaseNasabah;
     }
     
-    public DatabaseNasabah[] getDs()throws SQLException{
-        return ds;
-    }
+//    public DatabaseNasabah[] getDs()throws SQLException{
+//        return ds;
+//    }
 }

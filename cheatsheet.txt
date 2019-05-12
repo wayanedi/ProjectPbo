@@ -16,6 +16,9 @@ git commit -m 'change log'
 git push -u origin namabranch
 
 git branch --> lihat branch sekarang, branch sekarang tandanya *
+*.jpg --> ignore semua file jpg
+/ext/*  -> ignore ext folder
+/ext/*.jpg -> ignore semua file jpg di semua folder ext
 
 git fetch origin --> mengupdate lalu menimpa file local
 git reset --hard origin/master --> gatau apa tapi jalanin aja
