@@ -10,12 +10,16 @@ package projectpbo;
  * @author anonymous
  */
 public class MainMessage extends javax.swing.JPanel {
-
-    /**
+        private Database ds;
+        private DatabaseNasabah[] dn;
+    /** 
      * Creates new form MainMessage
      */
     public MainMessage() {
         initComponents();
+//        this.dn = ds.getData();
+//        dn = new DatabaseNasabah[];
+//        ds.getDs();
     }
 
     /**
@@ -28,32 +32,62 @@ public class MainMessage extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(980, 505));
 
-        jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
-        jLabel13.setText("MenuUtama Sayang");
+        jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel13.setText("USER");
+
+        jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel14.setText("MENU UTAMA");
+
+        jLabel15.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel15.setText("SELAMAT DATANG,");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(325, 325, 325)
+                .addGap(428, 428, 428)
                 .addComponent(jLabel13)
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addContainerGap(460, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(335, 335, 335)
+                    .addComponent(jLabel14)
+                    .addContainerGap(399, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(299, 299, 299)
+                    .addComponent(jLabel15)
+                    .addContainerGap(341, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(194, 194, 194)
                 .addComponent(jLabel13)
-                .addContainerGap(446, Short.MAX_VALUE))
+                .addContainerGap(269, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(jLabel14)
+                    .addContainerGap(441, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(139, 139, 139)
+                    .addComponent(jLabel15)
+                    .addContainerGap(324, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     // End of variables declaration//GEN-END:variables
 }
