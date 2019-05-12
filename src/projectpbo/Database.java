@@ -55,10 +55,10 @@ public class Database {
     }
     
     public DatabaseNasabah getData()throws SQLException{
-        sql = "SELECT * FROM usr INNER JOIN nasabah on usr.id_user = nasabah.id_user INNER JOIN rekening on nasabah.id_user = rekening.id_user where usr.id_user=1";
+        sql = "SELECT * FROM usr INNER JOIN nasabah on usr.id_user = nasabah.id_user where usr.id_user=1";
             rs = stat.executeQuery(sql);
             if(rs.next()){
-               databaseNasabah = new DatabaseNasabah(rs.getString("nasabah.nama_lengkap"), rs.getString("rekening.no_rekening"), rs.getDouble("rekening.saldo"));
+               databaseNasabah = new DatabaseNasabah(rs.getString("nasabah.nama_lengkap"), rs.getString("nasabah.email"), rs.getString("nasabah.no_tlp"), rs.getString("nasabah.ibu_kandung"));
                
             }
         return databaseNasabah;
