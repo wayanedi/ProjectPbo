@@ -11,26 +11,32 @@ package projectpbo;
  */
 public class DatabaseNasabah {
     private String namaNasabah;
-    private String noRek;
-    private double saldo;
+    private String email;
+    private String noTelp;
+    private String ibuKandung;
     
 
-    public DatabaseNasabah(String namaNasabah, String noRek, Double saldo) {
+    public DatabaseNasabah(String namaNasabah, String email, String noTelp, String ibuKandung) {
         this.namaNasabah = namaNasabah;
-        this.noRek = noRek;
-        this.saldo = saldo;
+        this.email = email;
+        this.noTelp = noTelp;
+        this.ibuKandung = ibuKandung;
     }
     
     public String getNamaNasabah(){
         return this.namaNasabah;
     }
     
-    public String getNoRek(){
-        return this.noRek;
+    public String getEmail(){
+        return this.email;
     }
     
-    public double getSaldo(){
-        return this.saldo;
+    public String getNoTelp(){
+        return this.noTelp;
+    }
+    
+    public String getIbuKandung(){
+        return this.ibuKandung;
     }
     
 }
