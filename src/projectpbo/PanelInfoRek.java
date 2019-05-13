@@ -16,7 +16,8 @@ import java.awt.Color;
  * @author anonymous
  */
 public class PanelInfoRek extends javax.swing.JPanel {
-
+    
+    private Rekening rekening;
     /**
      * Creates new form PanelInfoRek
      */
@@ -25,7 +26,7 @@ public class PanelInfoRek extends javax.swing.JPanel {
 ////    PanelInfoRek_Mutasi PanelIndoRek_Mutasi;
 //    GridBagLayout layout = new GridBagLayout();
 
-    public PanelInfoRek() {
+    public PanelInfoRek(Rekening rekening) {
         initComponents();
 //      setLocationRelativeTo(null);
 //        PanelIndoRek_Mutasi= new PanelInfoRek_Mutasi();

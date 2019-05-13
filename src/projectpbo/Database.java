@@ -21,11 +21,14 @@ import javax.swing.JOptionPane;
  */ 
 public class Database {
     
+    private int id_user;
     private Connection con;
     private Statement stat;
     private ResultSet rs;
     private String sql;
     private DatabaseNasabah databaseNasabah;
+    private Rekening rekening;
+    private DataPekerja dataPekerja;
     
     public Database(){
         databaseNasabah = null;
@@ -41,11 +44,12 @@ public class Database {
     
     public boolean isValidUser(String username, String password)throws SQLException{
         
-        sql = "SELECT `username`, `password` FROM `usr` WHERE `username` = '" + username +"' and `password` = '"+password+"'";
+        sql = "SELECT `username`, `password`, `id_user` FROM `usr` WHERE `username` = '" + username +"' and `password` = '"+password+"'";
             rs = stat.executeQuery(sql);
             if(rs.next()){
                 String pw= rs.getString("password");     
                 if(password.equals(pw) && username.equals(rs.getString("username"))){
+                    this.id_user = rs.getInt("id_user");
                    return true;
                 }
             }else{
@@ -54,17 +58,21 @@ public class Database {
         return false;
     }
     
-    public DatabaseNasabah getData()throws SQLException{
-        sql = "SELECT * FROM usr INNER JOIN nasabah on usr.id_user = nasabah.id_user where usr.id_user=1";
+    public Rekening getData()throws SQLException{
+        sql = "SELECT * FROM rekening INNER JOIN nasabah on rekening.id_user = nasabah.id_user INNER JOIN data_pekerja on nasabah.id_user = data_pekerja.id_user where rekening.id_user='"+this.id_user+"'";
             rs = stat.executeQuery(sql);
             if(rs.next()){
-               databaseNasabah = new DatabaseNasabah(rs.getString("nasabah.nama_lengkap"), rs.getString("nasabah.email"), rs.getString("nasabah.no_tlp"), rs.getString("nasabah.ibu_kandung"));
-               
+               databaseNasabah = new DatabaseNasabah(rs.getString("nasabah.nama_lengkap"), rs.getString("nasabah.email"), rs.getString("nasabah.no_tlp"), rs.getString("nasabah.ibu_kandung"), this.id_user);
+               dataPekerja = new DataPekerja(rs.getString("data_pekerja.jenis_pekerjaan"), rs.getString("data_pekerja.nama_kantor"), rs.getString("data_pekerja.jabatan"), rs.getString("data_pekerja.alamat_kantor"), rs.getString("data_pekerja.pendapatan"));
+            
+               if(rs.getString("rekening.jenis_rekening").equals("biasa")){
+                   rekening = new RekeningBiasa(databaseNasabah, dataPekerja, rs.getDouble("rekening.saldo"), rs.getString("no_rekening"));
+               }
+               else if(rs.getString("rekening.jenis_rekening").equals("bisnis")){
+                   rekening = new RekeningBisnis(databaseNasabah, dataPekerja, rs.getDouble("rekening.saldo"), rs.getString("no_rekening"));
+               }
             }
-        return databaseNasabah;
+        return rekening;
     }
     
-//    public DatabaseNasabah[] getDs()throws SQLException{
-//        return ds;
-//    }
 }
