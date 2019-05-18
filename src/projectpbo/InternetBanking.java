@@ -10,6 +10,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,7 +18,7 @@ import java.awt.Color;
  */
 public class InternetBanking extends javax.swing.JFrame {
    
-    private DatabaseNasabah databaseNasabah;
+    private Rekening rekening;
     PanelTransfer panelTransfer;
     PanelPembayaran panelPembayaran;
     PanelPembelian panelPembelian;
@@ -29,16 +30,16 @@ public class InternetBanking extends javax.swing.JFrame {
      * Creates new form InternetBanking
      */
     
-    public InternetBanking(DatabaseNasabah dbNasabah){
+    public InternetBanking(Rekening rekening, ArrayList<DatabaseLog> data){
         
         initComponents();
         setLocationRelativeTo(null);
-        databaseNasabah = dbNasabah;
-        panelTransfer = new PanelTransfer();
-        panelPembayaran = new PanelPembayaran();
-        panelPembelian = new PanelPembelian();
-        panelInfoRek = new PanelInfoRek();
-        mainMessage = new MainMessage(databaseNasabah);
+        this.rekening = rekening;
+        panelTransfer = new PanelTransfer(rekening);
+        panelPembayaran = new PanelPembayaran(rekening);
+        panelPembelian = new PanelPembelian(rekening);
+        panelInfoRek = new PanelInfoRek(rekening,data);
+        mainMessage = new MainMessage(rekening);
         
         DinamicPanel.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();

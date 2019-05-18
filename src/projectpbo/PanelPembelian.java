@@ -12,11 +12,12 @@ package projectpbo;
 public class PanelPembelian extends javax.swing.JPanel {
 
     private int menu;
+    private Rekening rekening;
 
     /**
      * Creates new form PanelPembelian
      */
-    public PanelPembelian() {
+    public PanelPembelian(Rekening rekening) {
         initComponents();
     }
 

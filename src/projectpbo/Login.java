@@ -8,6 +8,7 @@ package projectpbo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -18,9 +19,9 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
  
-    Database db;
-    private DatabaseNasabah databaseNasabah;
-    
+    private Database db;
+    private Rekening rekening;
+    private ArrayList<DatabaseLog> data;
     /**
      * Creates new form Login
      */
@@ -28,7 +29,6 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         db = new Database();
         setLocationRelativeTo(null);
-        
     }
 
     /**
@@ -126,8 +126,9 @@ public class Login extends javax.swing.JFrame {
             if(db.isValidUser(jUsername.getText(), String.valueOf(jPassword.getPassword()))){
                 
                 JOptionPane.showMessageDialog(null, "Login Success!", "Success!", JOptionPane.INFORMATION_MESSAGE);
-                databaseNasabah = db.getData();
-                InternetBanking menu = new InternetBanking(databaseNasabah); //comnet
+                rekening = db.getData();
+                data = db.getLog();
+                InternetBanking menu = new InternetBanking(rekening,data); //comnet
                 this.setVisible(false);
                 menu.setVisible(true);
             }

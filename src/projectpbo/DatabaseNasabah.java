@@ -10,27 +10,51 @@ package projectpbo;
  * @author aizaki
  */
 public class DatabaseNasabah {
+    
+    private int id_user;
     private String namaNasabah;
-    private String noRek;
-    private double saldo;
+    private String email;
+    private String noTelp;
+    private String ibuKandung;
+    //======================
+    private String keterangan;
+    private double debit;
+    private double kredit;
+    //====================
     
 
-    public DatabaseNasabah(String namaNasabah, String noRek, Double saldo) {
+    public DatabaseNasabah(String namaNasabah, String email, String noTelp, String ibuKandung, int id_user, String keterangan, double debit, double kredit) {
         this.namaNasabah = namaNasabah;
-        this.noRek = noRek;
-        this.saldo = saldo;
+        this.email = email;
+        this.noTelp = noTelp;
+        this.ibuKandung = ibuKandung;
+        this.id_user = id_user;
+        //=======================
+        this.keterangan = keterangan;
+        this.debit = debit;
+        this.kredit = kredit;
     }
     
+    public void setIdUser(int ud_user){
+        this.id_user = id_user;
+    }
     public String getNamaNasabah(){
         return this.namaNasabah;
     }
     
-    public String getNoRek(){
-        return this.noRek;
+    public String getEmail(){
+        return this.email;
     }
     
-    public double getSaldo(){
-        return this.saldo;
+    public String getNoTelp(){
+        return this.noTelp;
     }
     
+    public String getIbuKandung(){
+        return this.ibuKandung;
+    }
+    
+    public int getIdUser(){
+        return this.id_user;
+    }
 }
