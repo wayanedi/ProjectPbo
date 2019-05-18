@@ -15,6 +15,11 @@ public class Rekening {
     private DataPekerja dataPekerja;
     private double saldo;
     private String norek;
+    //===============================
+    private String keterangan;
+    private double debit;
+    private double kredit;
+    //==============================
     
     public Rekening(DatabaseNasabah nasabah, DataPekerja dataPekerja, double saldo, String norek){
         
