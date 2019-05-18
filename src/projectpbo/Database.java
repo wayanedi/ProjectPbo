@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -29,6 +30,7 @@ public class Database {
     private DatabaseNasabah databaseNasabah;
     private Rekening rekening;
     private DataPekerja dataPekerja;
+    private ArrayList<DatabaseLog> data = new ArrayList<DatabaseLog>();
     
     public Database(){
         databaseNasabah = null;
@@ -59,10 +61,10 @@ public class Database {
     }
     
     public Rekening getData()throws SQLException{
-        sql = "SELECT * FROM rekening INNER JOIN nasabah on rekening.id_user = nasabah.id_user INNER JOIN data_pekerja on nasabah.id_user = data_pekerja.id_user where rekening.id_user='"+this.id_user+"'";
+        sql = "SELECT * FROM rekening INNER JOIN nasabah on rekening.id_user = nasabah.id_user INNER JOIN data_pekerja on nasabah.id_user = data_pekerja.id_pekerja INNER JOIN log on log.id_user = nasabah.id_user where rekening.id_user='"+this.id_user+"'";
             rs = stat.executeQuery(sql);
             if(rs.next()){
-               databaseNasabah = new DatabaseNasabah(rs.getString("nasabah.nama_lengkap"), rs.getString("nasabah.email"), rs.getString("nasabah.no_tlp"), rs.getString("nasabah.ibu_kandung"), this.id_user);
+               databaseNasabah = new DatabaseNasabah(rs.getString("nasabah.nama_lengkap"), rs.getString("nasabah.email"), rs.getString("nasabah.no_tlp"), rs.getString("nasabah.ibu_kandung"), this.id_user, rs.getString("log.keterangan"), rs.getDouble("log.debit"), rs.getDouble("log.kredit")); 
                dataPekerja = new DataPekerja(rs.getString("data_pekerja.jenis_pekerjaan"), rs.getString("data_pekerja.nama_kantor"), rs.getString("data_pekerja.jabatan"), rs.getString("data_pekerja.alamat_kantor"), rs.getString("data_pekerja.pendapatan"));
             
                if(rs.getString("rekening.jenis_rekening").equals("biasa")){
@@ -75,4 +77,20 @@ public class Database {
         return rekening;
     }
     
+     public ArrayList<DatabaseLog> getLog(){
+            try{
+                sql = "SELECT * FROM log where id_user='"+this.id_user+"'";
+                rs = stat.executeQuery(sql);
+                while(rs.next()){
+                        
+                    DatabaseLog log = new DatabaseLog(rs.getString("tanggal"), rs.getString("keterangan"), rs.getString("kredit"), rs.getString("debit"));
+                    data.add(log);
+                    }
+       
+            }
+            catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+             return data;
+    }
 }
