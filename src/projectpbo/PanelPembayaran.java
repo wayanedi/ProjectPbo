@@ -10,12 +10,14 @@ package projectpbo;
  * @author anonymous
  */
 public class PanelPembayaran extends javax.swing.JPanel {
-
+    
+    private Rekening rekening;
     /**
      * Creates new form PanelPembayaran
      */
-    public PanelPembayaran() {
+    public PanelPembayaran(Rekening rekening) {
         initComponents();
+        this.rekening = rekening;
     }
 
     /**

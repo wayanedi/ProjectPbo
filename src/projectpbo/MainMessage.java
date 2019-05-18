@@ -18,9 +18,9 @@ public class MainMessage extends javax.swing.JPanel {
         initComponents();
     }
     
-    public MainMessage(DatabaseNasabah databaseNasabah) {
+    public MainMessage(Rekening rekening) {
         initComponents();
-        label_user.setText(databaseNasabah.getNamaNasabah());
+        label_user.setText(rekening.getNasabah().getNamaNasabah());
     }
 
     /**

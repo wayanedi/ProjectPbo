@@ -10,11 +10,13 @@ package projectpbo;
  * @author anonymous
  */
 public class PanelTransfer extends javax.swing.JPanel {
-
+    
+    private Rekening rekening;
     /**
+     * 
      * Creates new form PanelTransfer
      */
-    public PanelTransfer() {
+    public PanelTransfer(Rekening rekening) {
         initComponents();
     }
 

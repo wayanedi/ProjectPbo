@@ -10,13 +10,19 @@ import java.awt.GridBagLayout;
 import java.awt.Window;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author anonymous
  */
 public class PanelInfoRek extends javax.swing.JPanel {
-
+    
+    private Rekening rekening;
+    private ArrayList<DatabaseLog> data2 = new ArrayList<DatabaseLog>();
     /**
      * Creates new form PanelInfoRek
      */
@@ -25,8 +31,13 @@ public class PanelInfoRek extends javax.swing.JPanel {
 ////    PanelInfoRek_Mutasi PanelIndoRek_Mutasi;
 //    GridBagLayout layout = new GridBagLayout();
 
-    public PanelInfoRek() {
+    public PanelInfoRek(Rekening rekening, ArrayList<DatabaseLog> data) {
         initComponents();
+        label_noRek.setText(rekening.getNorek());
+        label_nama.setText(rekening.getNasabah().getNamaNasabah());
+        this.data2=data;
+//        System.out.println(data.get(0).getKeterangan());
+    
 //      setLocationRelativeTo(null);
 //        PanelIndoRek_Mutasi= new PanelInfoRek_Mutasi();
         
@@ -44,6 +55,31 @@ public class PanelInfoRek extends javax.swing.JPanel {
 //        
     }
     
+   public void showUser(ArrayList<DatabaseLog> data){
+       
+       DefaultTableModel model = (DefaultTableModel) table_log.getModel();
+       model.setRowCount(0);
+       Object[] row = new Object[4];
+       for (int i = 0; i < data.size(); i++) {
+           DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+           String date1 = df.format(DateChooser_from.getDate());
+           String date2 = df.format(DateChooser_to.getDate());
+//           System.out.println(date1);
+//           System.out.println(data.get(i).getTanggal());
+//           
+//           System.out.println();
+           if(data.get(i).getTanggal().compareTo(date1)>=0 && date2.compareTo(data.get(i).getTanggal())>=0){
+                row[0]=data.get(i).getTanggal();
+                row[1]=data.get(i).getKeterangan();
+                row[2]=data.get(i).getKredit();
+                row[3]=data.get(i).getDebit();
+                model.addRow(row);
+            }
+       }
+//       System.out.println(data.size());
+       
+   }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,12 +95,19 @@ public class PanelInfoRek extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         jComboBox = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        label_noRek = new javax.swing.JLabel();
+        label_nama = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Mutasi = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table_log = new javax.swing.JTable();
+        DateChooser_from = new com.toedter.calendar.JDateChooser();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        DateChooser_to = new com.toedter.calendar.JDateChooser();
+        button_tampil = new javax.swing.JButton();
         Profile = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
@@ -93,11 +136,11 @@ public class PanelInfoRek extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel16.setText("Jenis Transaksi");
 
-        jLabel17.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        jLabel17.setText("no rek");
+        label_noRek.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        label_noRek.setText("no rek");
 
-        jLabel18.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        jLabel18.setText("nama user");
+        label_nama.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        label_nama.setText("nama user");
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
         jLabel1.setText("INFORMASI UTAMA");
@@ -114,11 +157,11 @@ public class PanelInfoRek extends javax.swing.JPanel {
                             .addGroup(Informasi_menuLayout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel17))
+                                .addComponent(label_noRek))
                             .addGroup(Informasi_menuLayout.createSequentialGroup()
                                 .addComponent(jLabel15)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel18))
+                                .addComponent(label_nama))
                             .addGroup(Informasi_menuLayout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addGap(36, 36, 36)
@@ -136,11 +179,11 @@ public class PanelInfoRek extends javax.swing.JPanel {
                 .addGap(91, 91, 91)
                 .addGroup(Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel17))
+                    .addComponent(label_noRek))
                 .addGap(18, 18, 18)
                 .addGroup(Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jLabel18))
+                    .addComponent(label_nama))
                 .addGap(15, 15, 15)
                 .addGroup(Informasi_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
@@ -160,25 +203,94 @@ public class PanelInfoRek extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
         jLabel14.setText("MUTASI");
 
+        table_log.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Tanggal", "Keterangan", "Debit", "Kredit"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(table_log);
+        if (table_log.getColumnModel().getColumnCount() > 0) {
+            table_log.getColumnModel().getColumn(0).setResizable(false);
+            table_log.getColumnModel().getColumn(1).setResizable(false);
+            table_log.getColumnModel().getColumn(2).setResizable(false);
+            table_log.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        DateChooser_from.setDateFormatString("yyyy-MM-d");
+
+        jLabel2.setText("Dari");
+
+        jLabel3.setText("Sampai");
+
+        DateChooser_to.setDateFormatString("yyyy-MM-d");
+
+        button_tampil.setText("Tampilkan");
+        button_tampil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_tampilActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MutasiLayout = new javax.swing.GroupLayout(Mutasi);
         Mutasi.setLayout(MutasiLayout);
         MutasiLayout.setHorizontalGroup(
             MutasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MutasiLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(840, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MutasiLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addGap(398, 398, 398))
+            .addGroup(MutasiLayout.createSequentialGroup()
+                .addGroup(MutasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MutasiLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MutasiLayout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(MutasiLayout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(jLabel2)
+                .addGap(34, 34, 34)
+                .addComponent(DateChooser_from, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DateChooser_to, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addComponent(button_tampil, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
         );
         MutasiLayout.setVerticalGroup(
             MutasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MutasiLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 355, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
+                .addGroup(MutasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(DateChooser_from, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(MutasiLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel3))
+                    .addComponent(DateChooser_to, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(MutasiLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel2))
+                    .addComponent(button_tampil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(jButton2)
                 .addGap(101, 101, 101))
         );
@@ -226,6 +338,8 @@ public class PanelInfoRek extends javax.swing.JPanel {
         add(jTabbedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -42, 1010, 590));
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void jComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxMouseClicked
         // TODO add your handling code here:
         int n=jComboBox.getSelectedIndex();
@@ -253,6 +367,11 @@ public class PanelInfoRek extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jComboBoxActionPerformed
 
+    private void button_tampilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_tampilActionPerformed
+        // TODO add your handling code here:
+        showUser(data2);
+    }//GEN-LAST:event_button_tampilActionPerformed
+
 //    
 //     private void setVisiblePanel(boolean info, boolean mutasi){
 //        this.setVisible(info);
@@ -262,9 +381,12 @@ public class PanelInfoRek extends javax.swing.JPanel {
 //     
 //    private javax.swing.JPanel DinamicPanel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser DateChooser_from;
+    private com.toedter.calendar.JDateChooser DateChooser_to;
     private javax.swing.JPanel Informasi_menu;
     private javax.swing.JPanel Mutasi;
     private javax.swing.JPanel Profile;
+    private javax.swing.JButton button_tampil;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox;
@@ -273,9 +395,13 @@ public class PanelInfoRek extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPanel;
+    private javax.swing.JLabel label_nama;
+    private javax.swing.JLabel label_noRek;
+    private javax.swing.JTable table_log;
     // End of variables declaration//GEN-END:variables
 }
