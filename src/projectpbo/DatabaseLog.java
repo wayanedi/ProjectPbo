@@ -12,14 +12,14 @@ package projectpbo;
 class DatabaseLog {
     private String tanggal;
     private String keterangan;
-    private String debit;
-    private String kredit;
+    private double nominal;
+    private String status;
     
-    public DatabaseLog(String tanggal, String keterangan, String debit, String kredit){
+    public DatabaseLog(String tanggal, String keterangan, double debit, String status){
         this.tanggal = tanggal;
         this.keterangan = keterangan;
-        this.debit = debit;
-        this.kredit = kredit;
+        this.nominal = debit;
+        this.status = status;
     }
     
     public String getTanggal(){
@@ -30,11 +30,11 @@ class DatabaseLog {
         return this.keterangan;
     }
     
-    public String getDebit(){
-        return this.debit;
+    public double getNominal(){
+        return this.nominal;
     }
     
-    public String getKredit(){
-        return this.kredit;
+    public String getStatus(){
+        return this.status;
     }
 }
