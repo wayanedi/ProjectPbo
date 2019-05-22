@@ -11,9 +11,9 @@ package projectpbo;
  */
 public class RekeningBiasa extends Rekening {
     
-    private double pajak;
-    private double limitTransfer;
-    private double limitPenarikan;
+    public static final double pajak = 7500;
+    public static final double limitTransfer = 50000000;
+    public static final double limitPenarikan = 5000000;
     
     public RekeningBiasa(DatabaseNasabah nasabah, DataPekerja dataPekerja, double saldo, String norek){
         
@@ -21,8 +21,8 @@ public class RekeningBiasa extends Rekening {
     }
     
     @Override
-    public void transfer(double saldo, Rekening rekening){
-        super.transfer(saldo, rekening);
+    public void transfer(double saldo, String rekTujian) throws InvalidBalanceExeption, InvalidSaldoException{
+        super.transfer(saldo+pajak, rekTujian);
     }
     
 }
