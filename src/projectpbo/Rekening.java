@@ -62,6 +62,11 @@ public class Rekening {
         this.penarikan(saldo);
     }
     
+    
+    public void pembayaranDanPembelian() throws InvalidBalanceExeption, InvalidSaldoException{
+        this.penarikan(saldo);
+    }
+    
     public DatabaseNasabah getNasabah(){
         return this.nasabah;
     }
@@ -84,7 +89,6 @@ public class Rekening {
     public void setDataPekerja(DataPekerja dataPekerja){
         this.dataPekerja = dataPekerja;
     }
-    
     
     public void setNorek(String norek){
         this.norek = norek;
