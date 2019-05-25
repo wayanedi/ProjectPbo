@@ -523,7 +523,7 @@ public class PanelTransfer extends javax.swing.JPanel {
                 }
                 JOptionPane.showMessageDialog(null, "Transfer success", "Success", JOptionPane.INFORMATION_MESSAGE);
                 db.updateBalance(rekening);
-                db.insertLog(rekening, "Berhasil Transfer ke: " + comboNamaBank.getSelectedItem() "  "+ textNorekAntarBank.getText() +" berita: " + textBeritaAntarBank.getText(), Double.parseDouble(textJumlahAntarBank.getText()), "debit");
+                db.insertLog(rekening, "Berhasil Transfer ke: " + comboNamaBank.getSelectedItem() +"  "+ textNorekAntarBank.getText() +" berita: " + textBeritaAntarBank.getText(), Double.parseDouble(textJumlahAntarBank.getText()), "debit");
                 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Fail", JOptionPane.INFORMATION_MESSAGE);
