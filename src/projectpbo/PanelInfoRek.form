@@ -363,8 +363,22 @@
                               <EmptySpace min="-2" pref="413" max="-2" attributes="0"/>
                               <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="label4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelNamaAwal" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelNorekAwal" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelSaldo" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="377" max="32767" attributes="0"/>
+                      <EmptySpace pref="385" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -373,9 +387,28 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="355" max="32767" attributes="0"/>
-                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="label3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelNorekAwal" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="labelNamaAwal" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="labelSaldo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="226" max="32767" attributes="0"/>
+                              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="label5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="label4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -395,6 +428,57 @@
                   <Font name="Ubuntu" size="48" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="PROFILE"/>
+              </Properties>
+            </Component>
+            <Component class="java.awt.Label" name="label3">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="NO REKENING"/>
+              </Properties>
+            </Component>
+            <Component class="java.awt.Label" name="labelNorekAwal">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="REK"/>
+              </Properties>
+            </Component>
+            <Component class="java.awt.Label" name="label4">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="SALDO"/>
+              </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="SALDO"/>
+              </AccessibilityProperties>
+            </Component>
+            <Component class="java.awt.Label" name="labelNamaAwal">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="NAMA"/>
+              </Properties>
+            </Component>
+            <Component class="java.awt.Label" name="label5">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="NAMA"/>
+              </Properties>
+            </Component>
+            <Component class="java.awt.Label" name="labelSaldo">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="SALDO"/>
               </Properties>
             </Component>
           </SubComponents>

@@ -15,7 +15,6 @@ public class RekeningBisnis extends Rekening {
     
     public static final double pajak = 5000;
     public static final double limitTransfer = 150000000;
-    public static final double limitPenarikan = 10000000;
     
     public RekeningBisnis(DatabaseNasabah nasabah, DataPekerja dataPekerja, double saldo, String norek){
         

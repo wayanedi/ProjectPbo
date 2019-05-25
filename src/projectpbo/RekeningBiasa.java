@@ -13,7 +13,6 @@ public class RekeningBiasa extends Rekening {
     
     public static final double pajak = 7500;
     public static final double limitTransfer = 50000000;
-    public static final double limitPenarikan = 5000000;
     
     public RekeningBiasa(DatabaseNasabah nasabah, DataPekerja dataPekerja, double saldo, String norek){
         
