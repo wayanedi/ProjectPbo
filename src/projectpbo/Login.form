@@ -95,6 +95,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="admin"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jUsernameActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -116,6 +119,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="1234"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
