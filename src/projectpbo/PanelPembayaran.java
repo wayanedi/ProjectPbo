@@ -5,6 +5,10 @@
  */
 package projectpbo;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author anonymous
@@ -16,10 +20,11 @@ public class PanelPembayaran extends javax.swing.JPanel {
      * Creates new form PanelPembayaran
      */
     public PanelPembayaran(Rekening rekening) {
-        initComponents();
         this.rekening = rekening;
+        initComponents();
+       
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,15 +119,31 @@ public class PanelPembayaran extends javax.swing.JPanel {
 
         PapanJenisPembayaran2.setText("Penyedia Layanan");
 
-        BoxPilih1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "Pembayaran PAM", "Pembayaran Internet" }));
+        BoxPilih1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "PDAM" }));
         BoxPilih1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BoxPilih1.setFocusCycleRoot(true);
+        BoxPilih1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxPilih1ActionPerformed(evt);
+            }
+        });
 
         PapanNo_Pelanggan2.setText("No. Pelanggan");
+
+        Isi_NoPelanggan1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Isi_NoPelanggan1ActionPerformed(evt);
+            }
+        });
 
         Jumlah2.setText("Jumlah");
 
         Isi_Jumlah1.setText(" ");
+        Isi_Jumlah1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Isi_Jumlah1ActionPerformed(evt);
+            }
+        });
 
         Keterangan2.setText("Keterangan");
 
@@ -134,6 +155,11 @@ public class PanelPembayaran extends javax.swing.JPanel {
         });
 
         Bayar1.setText("Bayar");
+        Bayar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bayar1ActionPerformed(evt);
+            }
+        });
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -210,7 +236,7 @@ public class PanelPembayaran extends javax.swing.JPanel {
 
         PapanJenisPembayaran3.setText("Penyedia Layanan");
 
-        BoxPilih2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "Pembayaran PAM", "Pembayaran Internet" }));
+        BoxPilih2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "Biznet", "Telkom" }));
         BoxPilih2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BoxPilih2.setFocusCycleRoot(true);
 
@@ -235,6 +261,11 @@ public class PanelPembayaran extends javax.swing.JPanel {
         });
 
         Bayar2.setText("Bayar");
+        Bayar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bayar2ActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -332,7 +363,101 @@ public class PanelPembayaran extends javax.swing.JPanel {
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_Kembali2ActionPerformed
 
+    private void Isi_Jumlah1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Isi_Jumlah1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_Isi_Jumlah1ActionPerformed
 
+    private void Isi_NoPelanggan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Isi_NoPelanggan1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_Isi_NoPelanggan1ActionPerformed
+
+    private void Bayar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bayar1ActionPerformed
+        String PLayanan = "";  
+        String NoPelanggan = "";
+        String Keterangan = "";
+        
+        try {
+            System.out.println("Pembayaran PAM");
+            perhitungan1();
+            PLayanan = (String)BoxPilih1.getSelectedItem();
+            NoPelanggan = Isi_NoPelanggan1.getText();
+            Keterangan = jTextArea2.getText();
+            System.out.println("Layanan: "+PLayanan);
+            System.out.println("No Pelanggan: "+NoPelanggan);
+            System.out.println("Keterangan: "+Keterangan);
+        } catch (InvalidSaldoException ex) {
+            Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvalidBalanceExeption ex) {
+            Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Bayar1ActionPerformed
+
+    private void Bayar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bayar2ActionPerformed
+        // TODO add your handling code here:
+        String PLayanan = "";
+        String NoPelanggan = "";
+        String Keterangan = "";
+        
+        try {
+            System.out.println("Pembayaran Internet: ");
+            perhitungan2();
+            PLayanan = (String)BoxPilih2.getSelectedItem();
+            NoPelanggan = Isi_NoPelanggan2.getText();
+            Keterangan = jTextArea1.getText();
+            System.out.println("Layanan: "+PLayanan);
+            System.out.println("No Pelanggan: "+NoPelanggan);
+            System.out.println("Keterangan: "+Keterangan);
+        } catch (InvalidSaldoException ex) {
+            Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvalidBalanceExeption ex) {
+            Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Bayar2ActionPerformed
+
+    private void BoxPilih1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxPilih1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BoxPilih1ActionPerformed
+
+    private void perhitungan1() throws InvalidSaldoException, InvalidBalanceExeption{
+        double hitung = 0;
+        
+        try{
+            System.out.println("Saldo sebelum bayar: "+rekening.getSaldo());
+           double jumlah = Double.parseDouble(Isi_Jumlah1.getText());
+           rekening.transfer(jumlah, "0000");
+            System.out.println("Saldo sesudah bayar: "+rekening.getSaldo());
+        }catch (InvalidSaldoException ex) {
+            String msg = ex.getMessage().toString();
+            JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
+        } catch (InvalidBalanceExeption ex) {
+            String msg = ex.getMessage().toString();
+            JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e){
+            System.out.println("gagal "+e.getMessage());
+        }
+    }
+    
+    private void perhitungan2() throws InvalidSaldoException, InvalidBalanceExeption{
+        double hitung = 0;
+        
+        try{
+            System.out.println("Saldo sebelum bayar: "+rekening.getSaldo());
+           double jumlah = Double.parseDouble(Isi_Jumlah2.getText());
+           rekening.transfer(jumlah, "0000");
+            System.out.println("Saldo sesudah bayar: "+rekening.getSaldo());
+        }catch (InvalidSaldoException ex) {
+            String msg = ex.getMessage().toString();
+            JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
+        } catch (InvalidBalanceExeption ex) {
+            String msg = ex.getMessage().toString();
+            JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e){
+            System.out.println("gagal "+e.getMessage());
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Bayar1;
     private javax.swing.JButton Bayar2;
