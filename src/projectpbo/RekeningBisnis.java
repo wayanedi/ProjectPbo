@@ -5,23 +5,24 @@
  */
 package projectpbo;
 
+import static projectpbo.RekeningBiasa.pajak;
+
 /**
  *
  * @author anonymous
  */
 public class RekeningBisnis extends Rekening {
     
-    private double pajak;
-    private double limitTransfer;
-    private double limitPenarikan;
+    public static final double pajak = 5000;
+    public static final double limitTransfer = 150000000;
     
     public RekeningBisnis(DatabaseNasabah nasabah, DataPekerja dataPekerja, double saldo, String norek){
         
-        super(nasabah, dataPekerja, saldo, norek); 
+        super(nasabah, dataPekerja, saldo, norek);
     }
     
     @Override
-    public void transfer(double saldo, Rekening rekening){
-        super.transfer(saldo, rekening);
+    public void transfer(double saldo, String rekTujian) throws InvalidBalanceExeption, InvalidSaldoException{
+        super.transfer(saldo+pajak, rekTujian);
     }
 }

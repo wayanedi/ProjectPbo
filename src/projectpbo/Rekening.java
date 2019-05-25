@@ -15,11 +15,7 @@ public class Rekening {
     private DataPekerja dataPekerja;
     private double saldo;
     private String norek;
-    //===============================
-    private String keterangan;
-    private double debit;
-    private double kredit;
-    //==============================
+
     
     public Rekening(DatabaseNasabah nasabah, DataPekerja dataPekerja, double saldo, String norek){
         
@@ -29,27 +25,41 @@ public class Rekening {
         this.norek = norek;  
     }
     
-    public void penarikan(double saldo){
-        if(this.saldo-saldo >0){
+    public void penarikan(double saldo) throws InvalidBalanceExeption, InvalidSaldoException{
+        
+        if(saldo>0){
+            if(this.saldo-saldo >0){
             this.saldo -=saldo;
+            }
+            else{
+                throw new InvalidBalanceExeption();
+            }
+        }
+        else{
+            throw new InvalidSaldoException();
         }
     }
     
-    public void penyetoran(double saldo){
-        this.saldo +=saldo;
-    }
-    
-    public void transfer(double saldo, Rekening rekening){
+    public void penyetoran(double saldo) throws InvalidSaldoException{
         
-        if(this.saldo-saldo >0){
-            this.saldo -=saldo;
-            rekening.setSaldo(saldo);
-            
+        if(saldo>0){
+            this.saldo +=saldo;
         }
+        else{
+            throw new InvalidSaldoException();
+        }
+        
     }
     
-    public void mutasiRekening(){
+    public void transfer(double saldo, Rekening rekening) throws InvalidBalanceExeption, InvalidSaldoException{
         
+        this.penarikan(saldo);
+        rekening.penyetoran(saldo);
+    }
+    
+    public void transfer(double saldo, String rekTujuan) throws InvalidBalanceExeption, InvalidSaldoException{
+        
+        this.penarikan(saldo);
     }
     
     public DatabaseNasabah getNasabah(){
@@ -73,10 +83,6 @@ public class Rekening {
     
     public void setDataPekerja(DataPekerja dataPekerja){
         this.dataPekerja = dataPekerja;
-    }
-    
-    public void setSaldo(double saldo){
-        this.saldo = saldo;
     }
     
     public void setNorek(String norek){
