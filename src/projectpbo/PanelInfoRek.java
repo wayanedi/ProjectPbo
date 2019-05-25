@@ -71,8 +71,8 @@ public class PanelInfoRek extends javax.swing.JPanel {
            if(data.get(i).getTanggal().compareTo(date1)>=0 && date2.compareTo(data.get(i).getTanggal())>=0){
                 row[0]=data.get(i).getTanggal();
                 row[1]=data.get(i).getKeterangan();
-                row[2]=data.get(i).getKredit();
-                row[3]=data.get(i).getDebit();
+                row[2]=data.get(i).getNominal();
+                row[3]=data.get(i).getStatus();
                 model.addRow(row);
             }
        }
@@ -208,7 +208,7 @@ public class PanelInfoRek extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Tanggal", "Keterangan", "Debit", "Kredit"
+                "Tanggal", "Keterangan", "Nominal", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
