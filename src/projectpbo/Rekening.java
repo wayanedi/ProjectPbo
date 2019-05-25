@@ -85,7 +85,6 @@ public class Rekening {
         this.dataPekerja = dataPekerja;
     }
     
-    
     public void setNorek(String norek){
         this.norek = norek;
     }

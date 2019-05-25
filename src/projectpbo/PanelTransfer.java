@@ -5,6 +5,12 @@
  */
 package projectpbo;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author anonymous
@@ -12,6 +18,7 @@ package projectpbo;
 public class PanelTransfer extends javax.swing.JPanel {
     
     private Rekening rekening;
+    Database db;
     /**
      * 
      * Creates new form PanelTransfer
@@ -19,6 +26,7 @@ public class PanelTransfer extends javax.swing.JPanel {
     public PanelTransfer(Rekening rekening) {
         initComponents();
         this.rekening = rekening;
+        db = new Database();
         labelNorekAwal.setText(rekening.getNorek());
         labelNamaAwal.setText(rekening.getNasabah().getNamaNasabah());
     }
@@ -48,15 +56,15 @@ public class PanelTransfer extends javax.swing.JPanel {
         label8 = new java.awt.Label();
         label9 = new java.awt.Label();
         label10 = new java.awt.Label();
-        jTextField1 = new javax.swing.JTextField();
+        textJumlah = new javax.swing.JTextField();
         label11 = new java.awt.Label();
-        jTextField2 = new javax.swing.JTextField();
+        textNoRekening = new javax.swing.JTextField();
         label12 = new java.awt.Label();
         label13 = new java.awt.Label();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textBerita = new javax.swing.JTextArea();
         btnBatal = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnLanjutkan = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         label14 = new java.awt.Label();
@@ -64,17 +72,17 @@ public class PanelTransfer extends javax.swing.JPanel {
         label16 = new java.awt.Label();
         label17 = new java.awt.Label();
         labelNoRekAntarBank = new java.awt.Label();
-        jTextField3 = new javax.swing.JTextField();
+        textJumlahAntarBank = new javax.swing.JTextField();
         label19 = new java.awt.Label();
-        jTextField4 = new javax.swing.JTextField();
+        textNorekAntarBank = new javax.swing.JTextField();
         label20 = new java.awt.Label();
         label21 = new java.awt.Label();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        textBeritaAntarBank = new javax.swing.JTextArea();
         btnBatalAntarBank = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnLanjutAntarBank = new javax.swing.JButton();
         label22 = new java.awt.Label();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        comboNamaBank = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(980, 505));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -169,12 +177,12 @@ public class PanelTransfer extends javax.swing.JPanel {
         label10.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label10.setText("REK");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        textJumlah.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         label11.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label11.setText("Jumlah");
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        textNoRekening.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         label12.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label12.setText("No Rekening");
@@ -182,9 +190,9 @@ public class PanelTransfer extends javax.swing.JPanel {
         label13.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label13.setText("Berita");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textBerita.setColumns(20);
+        textBerita.setRows(5);
+        jScrollPane1.setViewportView(textBerita);
 
         btnBatal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnBatal.setText("BATAL");
@@ -194,8 +202,13 @@ public class PanelTransfer extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("LANJUTKAN");
+        btnLanjutkan.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnLanjutkan.setText("LANJUTKAN");
+        btnLanjutkan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLanjutkanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -220,10 +233,10 @@ public class PanelTransfer extends javax.swing.JPanel {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addComponent(btnBatal)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jButton2))
-                                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                    .addComponent(btnLanjutkan))
+                                .addComponent(textNoRekening, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
                                 .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField1)
+                                .addComponent(textJumlah)
                                 .addComponent(jScrollPane1)))))
                 .addGap(297, 297, 297))
         );
@@ -245,21 +258,21 @@ public class PanelTransfer extends javax.swing.JPanel {
                     .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textNoRekening, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(btnLanjutkan)
                     .addComponent(btnBatal))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
@@ -284,12 +297,12 @@ public class PanelTransfer extends javax.swing.JPanel {
         labelNoRekAntarBank.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         labelNoRekAntarBank.setText("REK");
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        textJumlahAntarBank.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         label19.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label19.setText("Jumlah");
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        textNorekAntarBank.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         label20.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label20.setText("Nama Bank");
@@ -297,9 +310,9 @@ public class PanelTransfer extends javax.swing.JPanel {
         label21.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label21.setText("Berita");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        textBeritaAntarBank.setColumns(20);
+        textBeritaAntarBank.setRows(5);
+        jScrollPane2.setViewportView(textBeritaAntarBank);
 
         btnBatalAntarBank.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnBatalAntarBank.setText("BATAL");
@@ -309,14 +322,19 @@ public class PanelTransfer extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton4.setText("LANJUTKAN");
+        btnLanjutAntarBank.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnLanjutAntarBank.setText("LANJUTKAN");
+        btnLanjutAntarBank.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLanjutAntarBankActionPerformed(evt);
+            }
+        });
 
         label22.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label22.setText("No Rekening");
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "Mandiri", "BCA", "BRI", "BTN" }));
+        comboNamaBank.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboNamaBank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "Mandiri", "BCA", "BRI", "BTN" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -341,12 +359,12 @@ public class PanelTransfer extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addComponent(btnBatalAntarBank)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton4))
+                                .addComponent(btnLanjutAntarBank))
                             .addComponent(label16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3)
+                            .addComponent(textJumlahAntarBank)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                            .addComponent(jTextField4)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(textNorekAntarBank)
+                            .addComponent(comboNamaBank, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(466, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -365,7 +383,7 @@ public class PanelTransfer extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textJumlahAntarBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -375,16 +393,16 @@ public class PanelTransfer extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboNamaBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(textNorekAntarBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4)
+                            .addComponent(btnLanjutAntarBank)
                             .addComponent(btnBatalAntarBank)))
                     .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18))
@@ -418,13 +436,117 @@ public class PanelTransfer extends javax.swing.JPanel {
         jComboBoxTransfer.setSelectedIndex(0);
     }//GEN-LAST:event_btnBatalAntarBankActionPerformed
 
+    private void btnLanjutkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLanjutkanActionPerformed
+        // TODO add your handling code here:
+        System.out.println("masuk");
+        
+        try{
+            ArrayList<Rekening> users = db.getAllUser();
+            
+            boolean status = false;
+            Rekening penerima = null;
+            for(int i=0; i<users.size(); i++){
+                if(textNoRekening.getText().equals(users.get(i).getNorek())){
+                    penerima = users.get(i);
+                    status = true;
+                    break;
+                }
+            }
+            
+            if(status){
+                
+                double limit = 0.00;
+                
+                if(rekening instanceof RekeningBisnis){
+                    RekeningBisnis rekbis = (RekeningBisnis) rekening;
+                    limit = rekbis.limitTransfer;
+                }
+                else if(rekening instanceof RekeningBiasa){
+                    RekeningBiasa rekbiasa = (RekeningBiasa) rekening;
+                    limit = rekbiasa.limitTransfer;
+                }
+                System.out.println("limit: "+ limit);
+               if(db.getNominal(rekening) >=limit) throw new InvalidLimitException();
+                
+                System.out.println("sebelum di transfer: " + penerima.getSaldo());
+                rekening.transfer(Double.parseDouble(textJumlah.getText()), penerima);
+                System.out.println("setelah di transfer: " + penerima.getSaldo());
+                JOptionPane.showMessageDialog(null, "Transfer success", "Success", JOptionPane.INFORMATION_MESSAGE);
+                db.updateBalance(rekening);
+                db.updateBalance(penerima);
+                db.insertLog(rekening, "Berhasil Transfer ke: " + penerima.getNorek() +" berita: " + textBerita.getText(), Double.parseDouble(textJumlah.getText()), "debit");
+                db.insertLog(penerima, rekening.getNorek() + " mentransfer dana" +" berita: " + textBerita.getText(), Double.parseDouble(textJumlah.getText()), "kredit");
+                
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Tidak ada rekening yang sama", "Fail", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+        
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Fail", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch (InvalidBalanceExeption ibe){
+            JOptionPane.showMessageDialog(null, ibe.getMessage(), "Fail", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch (InvalidSaldoException ise){
+            JOptionPane.showMessageDialog(null, ise.getMessage(), "Fail", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch(InvalidLimitException ile){
+            JOptionPane.showMessageDialog(null, ile.getMessage(), "Fail", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnLanjutkanActionPerformed
+
+    private void btnLanjutAntarBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLanjutAntarBankActionPerformed
+        // TODO add your handling code here:
+        try{
+                double limit = 0.00;
+                
+                if(rekening instanceof RekeningBisnis){
+                    RekeningBisnis rekbis = (RekeningBisnis) rekening;
+                    limit = rekbis.limitTransfer;
+                }
+                else if(rekening instanceof RekeningBiasa){
+                    RekeningBiasa rekbiasa = (RekeningBiasa) rekening;
+                    limit = rekbiasa.limitTransfer;
+                }
+                System.out.println("limit: "+ limit);
+               if(db.getNominal(rekening) >=limit) throw new InvalidLimitException();
+                
+                if(rekening instanceof RekeningBisnis){
+                    RekeningBisnis rekbis = (RekeningBisnis) rekening;
+                    rekbis.transfer(Double.parseDouble(textJumlahAntarBank.getText()), textNorekAntarBank.getText());
+                }
+                else if(rekening instanceof RekeningBiasa){
+                    RekeningBiasa rekbis = (RekeningBiasa) rekening;
+                    rekbis.transfer(Double.parseDouble(textJumlahAntarBank.getText()), textNorekAntarBank.getText());
+                }
+                JOptionPane.showMessageDialog(null, "Transfer success", "Success", JOptionPane.INFORMATION_MESSAGE);
+                db.updateBalance(rekening);
+                db.insertLog(rekening, "Berhasil Transfer ke: " + comboNamaBank.getSelectedItem() "  "+ textNorekAntarBank.getText() +" berita: " + textBeritaAntarBank.getText(), Double.parseDouble(textJumlahAntarBank.getText()), "debit");
+                
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Fail", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch (InvalidBalanceExeption ibe){
+            JOptionPane.showMessageDialog(null, ibe.getMessage(), "Fail", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch (InvalidSaldoException ise){
+            JOptionPane.showMessageDialog(null, ise.getMessage(), "Fail", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch(InvalidLimitException ile){
+            JOptionPane.showMessageDialog(null, ile.getMessage(), "Fail", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_btnLanjutAntarBankActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBatal;
     private javax.swing.JButton btnBatalAntarBank;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JButton btnLanjutAntarBank;
+    private javax.swing.JButton btnLanjutkan;
+    private javax.swing.JComboBox<String> comboNamaBank;
     private javax.swing.JComboBox<String> jComboBoxTransfer;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -433,12 +555,6 @@ public class PanelTransfer extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private java.awt.Label label10;
     private java.awt.Label label11;
     private java.awt.Label label12;
@@ -463,5 +579,11 @@ public class PanelTransfer extends javax.swing.JPanel {
     private java.awt.Label labelNorekAwal;
     private javax.swing.JPanel menuAwal;
     private javax.swing.JTabbedPane tabIndex;
+    private javax.swing.JTextArea textBerita;
+    private javax.swing.JTextArea textBeritaAntarBank;
+    private javax.swing.JTextField textJumlah;
+    private javax.swing.JTextField textJumlahAntarBank;
+    private javax.swing.JTextField textNoRekening;
+    private javax.swing.JTextField textNorekAntarBank;
     // End of variables declaration//GEN-END:variables
 }
