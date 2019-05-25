@@ -63,7 +63,7 @@ public class Rekening {
     }
     
     
-    public void pembayaranDanPembelian() throws InvalidBalanceExeption, InvalidSaldoException{
+    public void pembayaranDanPembelian(double saldo) throws InvalidBalanceExeption, InvalidSaldoException{
         this.penarikan(saldo);
     }
     

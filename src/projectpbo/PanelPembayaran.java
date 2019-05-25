@@ -426,7 +426,7 @@ public class PanelPembayaran extends javax.swing.JPanel {
         try{
             System.out.println("Saldo sebelum bayar: "+rekening.getSaldo());
            double jumlah = Double.parseDouble(Isi_Jumlah1.getText());
-           rekening.transfer(jumlah, "0000");
+           rekening.pembayaranDanPembelian(jumlah);
             System.out.println("Saldo sesudah bayar: "+rekening.getSaldo());
         }catch (InvalidSaldoException ex) {
             String msg = ex.getMessage().toString();
@@ -445,7 +445,7 @@ public class PanelPembayaran extends javax.swing.JPanel {
         try{
             System.out.println("Saldo sebelum bayar: "+rekening.getSaldo());
            double jumlah = Double.parseDouble(Isi_Jumlah2.getText());
-           rekening.transfer(jumlah, "0000");
+           rekening.pembayaranDanPembelian(jumlah);
             System.out.println("Saldo sesudah bayar: "+rekening.getSaldo());
         }catch (InvalidSaldoException ex) {
             String msg = ex.getMessage().toString();
