@@ -379,7 +379,6 @@ public class PanelPembelian extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
         } finally{
             String saldoAkhir = String.valueOf(rekening.getSaldo());
-            JOptionPane.showMessageDialog(null, saldoAkhir, "Saldo Anda", JOptionPane.INFORMATION_MESSAGE);
             System.out.println(pembelian);
             System.out.println("Saldo sebelum beli: " + saldoAwal);
             System.out.println("Saldo sesudah beli: " + saldoAkhir);
@@ -413,7 +412,6 @@ public class PanelPembelian extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
         } finally {
             String saldoAkhir = String.valueOf(rekening.getSaldo());
-            JOptionPane.showMessageDialog(null, saldoAkhir, "Saldo Anda", JOptionPane.INFORMATION_MESSAGE);
             System.out.println(pembelian);
             System.out.println("Saldo sebelum beli: " + saldoAwal);
             System.out.println("Saldo sesudah beli: " + saldoAkhir);
