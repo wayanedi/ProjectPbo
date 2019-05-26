@@ -69,6 +69,7 @@ public class Database {
         sql = "SELECT sum(nominal) as hasil FROM log WHERE tanggal='"+dateFormat.format(date)+"' AND id_user='" + rek.getNasabah().getIdUser() +"' AND status='debit'";
         
         double hasil = 0.00;
+        
         rs = stat.executeQuery(sql);
         
         if(rs.next()) hasil = rs.getDouble("hasil");
