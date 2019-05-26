@@ -5,6 +5,8 @@
  */
 package projectpbo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author anonymous
@@ -18,6 +20,7 @@ public class PanelPembelian extends javax.swing.JPanel {
      * Creates new form PanelPembelian
      */
     public PanelPembelian(Rekening rekening) {
+        this.rekening = rekening;
         initComponents();
     }
 
@@ -36,33 +39,35 @@ public class PanelPembelian extends javax.swing.JPanel {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelMain = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboBoxPembelian = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jPanelPulsa = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        penyediaLayananPulsa = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        noTelephone = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jSpinner1 = new javax.swing.JSpinner();
+        keteranganPulsa = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        pulsaKembali = new javax.swing.JButton();
+        comboBoxHarga = new javax.swing.JComboBox<>();
+        bayarPulsa = new javax.swing.JButton();
         jPanelTicket = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        penyediaJasaTicket = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        kodePembayaranTicket = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        keteranganTicket = new javax.swing.JTextArea();
+        bayarTicket = new javax.swing.JButton();
+        jumlahBayarTicket = new javax.swing.JTextField();
 
         jScrollPane2.setViewportView(jTextPane1);
 
@@ -75,10 +80,10 @@ public class PanelPembelian extends javax.swing.JPanel {
 
         jLabel1.setText("Jenis Pembelian");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "Pulsa", "Ticket" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxPembelian.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "Pembelian Pulsa", "Pembelian Ticket" }));
+        comboBoxPembelian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                comboBoxPembelianActionPerformed(evt);
             }
         });
 
@@ -95,7 +100,7 @@ public class PanelPembelian extends javax.swing.JPanel {
                     .addGroup(jPanelMainLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comboBoxPembelian, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelMainLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(jLabel8)))
@@ -109,7 +114,7 @@ public class PanelPembelian extends javax.swing.JPanel {
                 .addGap(114, 114, 114)
                 .addGroup(jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxPembelian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(367, Short.MAX_VALUE))
         );
 
@@ -117,7 +122,7 @@ public class PanelPembelian extends javax.swing.JPanel {
 
         jLabel3.setText("Penyedia Layanan");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "XL", "Telkomsel", "3" }));
+        penyediaLayananPulsa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "XL", "Telkomsel", "3" }));
 
         jLabel5.setText("No Telephone");
 
@@ -125,11 +130,9 @@ public class PanelPembelian extends javax.swing.JPanel {
 
         jLabel7.setText("Keterangan");
 
-        jTextField1.setText("+62");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        keteranganPulsa.setColumns(20);
+        keteranganPulsa.setRows(5);
+        jScrollPane1.setViewportView(keteranganPulsa);
 
         jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
         jLabel9.setText("PULSA");
@@ -141,10 +144,19 @@ public class PanelPembelian extends javax.swing.JPanel {
             }
         });
 
-        jButton3.setText("Kembali");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        pulsaKembali.setText("Kembali");
+        pulsaKembali.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                pulsaKembaliMouseClicked(evt);
+            }
+        });
+
+        comboBoxHarga.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10000", "25000", "50000", "100000", "250000" }));
+
+        bayarPulsa.setText("Bayar");
+        bayarPulsa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bayarPulsaActionPerformed(evt);
             }
         });
 
@@ -165,19 +177,20 @@ public class PanelPembelian extends javax.swing.JPanel {
                                     .addComponent(jLabel7))
                                 .addGap(35, 35, 35)
                                 .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(noTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(penyediaLayananPulsa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboBoxHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bayarPulsa)))
                             .addGroup(jPanelPulsaLayout.createSequentialGroup()
                                 .addGap(65, 65, 65)
                                 .addComponent(jLabel9))))
                     .addGroup(jPanelPulsaLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3)
+                            .addComponent(pulsaKembali)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addContainerGap(377, Short.MAX_VALUE))
         );
         jPanelPulsaLayout.setVerticalGroup(
             jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,24 +200,26 @@ public class PanelPembelian extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(penyediaLayananPulsa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(noTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(68, 68, 68)
-                .addComponent(jButton3)
+                .addGroup(jPanelPulsaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pulsaKembali)
+                    .addComponent(bayarPulsa))
                 .addGap(84, 84, 84)
                 .addComponent(jButton1)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Pulsa", jPanelPulsa);
@@ -221,13 +236,13 @@ public class PanelPembelian extends javax.swing.JPanel {
 
         jLabel2.setText("Penyedia Jasa");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "Pegi Pegi", "Ticket.com", "Traveloka" }));
+        penyediaJasaTicket.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "Pegi Pegi", "Ticket.com", "Traveloka" }));
 
         jLabel4.setText("Kode Pembayaran");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        kodePembayaranTicket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                kodePembayaranTicketActionPerformed(evt);
             }
         });
 
@@ -235,9 +250,16 @@ public class PanelPembelian extends javax.swing.JPanel {
 
         jLabel12.setText("Keterangan");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
+        keteranganTicket.setColumns(20);
+        keteranganTicket.setRows(5);
+        jScrollPane3.setViewportView(keteranganTicket);
+
+        bayarTicket.setText("Bayar");
+        bayarTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bayarTicketActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelTicketLayout = new javax.swing.GroupLayout(jPanelTicket);
         jPanelTicket.setLayout(jPanelTicketLayout);
@@ -246,25 +268,29 @@ public class PanelPembelian extends javax.swing.JPanel {
             .addGroup(jPanelTicketLayout.createSequentialGroup()
                 .addGroup(jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelTicketLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelTicketLayout.createSequentialGroup()
                         .addGap(394, 394, 394)
                         .addComponent(jLabel10))
                     .addGroup(jPanelTicketLayout.createSequentialGroup()
-                        .addGap(344, 344, 344)
                         .addGroup(jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12))
+                            .addGroup(jPanelTicketLayout.createSequentialGroup()
+                                .addGap(344, 344, 344)
+                                .addGroup(jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12)))
+                            .addGroup(jPanelTicketLayout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(49, 49, 49)
                         .addGroup(jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(292, Short.MAX_VALUE))
+                            .addComponent(bayarTicket)
+                            .addComponent(penyediaJasaTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jumlahBayarTicket, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(kodePembayaranTicket, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
         jPanelTicketLayout.setVerticalGroup(
             jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,21 +300,23 @@ public class PanelPembelian extends javax.swing.JPanel {
                 .addGap(38, 38, 38)
                 .addGroup(jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(penyediaJasaTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kodePembayaranTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jumlahBayarTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGroup(jPanelTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(bayarTicket))
                 .addGap(201, 201, 201))
         );
 
@@ -297,17 +325,17 @@ public class PanelPembelian extends javax.swing.JPanel {
         add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -40, 1040, 640));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void comboBoxPembelianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPembelianActionPerformed
            // TODO add your handling code here:
            
-        if(jComboBox1.getSelectedIndex()==1){
+        if(comboBoxPembelian.getSelectedIndex()==1){
            jTabbedPane1.setSelectedIndex(1);
         }
         
-        if(jComboBox1.getSelectedIndex()==2){
+        if(comboBoxPembelian.getSelectedIndex()==2){
             jTabbedPane1.setSelectedIndex(2);
         }
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_comboBoxPembelianActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
@@ -319,23 +347,93 @@ public class PanelPembelian extends javax.swing.JPanel {
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_jButton2MouseClicked
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void kodePembayaranTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kodePembayaranTicketActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_kodePembayaranTicketActionPerformed
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void pulsaKembaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pulsaKembaliMouseClicked
         // TODO add your handling code here:
          jTabbedPane1.setSelectedIndex(0);
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_pulsaKembaliMouseClicked
+
+    private void bayarPulsaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bayarPulsaActionPerformed
+        // TODO add your handling code here:
+        double hargaPulsa= Double.valueOf(comboBoxHarga.getSelectedItem().toString());
+         String pembelian = String.valueOf(comboBoxPembelian.getSelectedItem());
+         String saldoAwal = String.valueOf(rekening.getSaldo());
+         String penyediaLayanan = String.valueOf(penyediaLayananPulsa.getSelectedItem());
+         String notelephone = noTelephone.getText();
+         String keterangan = keteranganPulsa.getText();
+            
+        try{
+           rekening.pembayaranDanPembelian(hargaPulsa);
+           JOptionPane.showMessageDialog(null, "Transaksi Berhasil", "Beli Pulsa", JOptionPane.INFORMATION_MESSAGE);
+        } catch(InvalidBalanceExeption ibe){
+            String msg = ibe.getMessage().toString();
+            JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
+        } catch (InvalidSaldoException ise){
+            String msg = ise.getMessage().toString();
+            JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e){
+            String msg = e.getMessage().toString();
+            JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
+        } finally{
+            String saldoAkhir = String.valueOf(rekening.getSaldo());
+            JOptionPane.showMessageDialog(null, saldoAkhir, "Saldo Anda", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println(pembelian);
+            System.out.println("Saldo sebelum beli: " + saldoAwal);
+            System.out.println("Saldo sesudah beli: " + saldoAkhir);
+            System.out.println("Penyedia Jasa: "+ penyediaLayanan);
+            System.out.println("Kode Pembayaran: " + notelephone);
+            System.out.println("Keterangan: " + keterangan);
+        }
+        
+        
+    }//GEN-LAST:event_bayarPulsaActionPerformed
+
+    private void bayarTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bayarTicketActionPerformed
+        // TODO add your handling code here:
+         String pembelian = String.valueOf(comboBoxPembelian.getSelectedItem());
+         String saldoAwal = String.valueOf(rekening.getSaldo());
+         String penyediaJasa = String.valueOf(penyediaJasaTicket.getSelectedItem());
+         String kodePembayaran = kodePembayaranTicket.getText();
+         String keterangan = keteranganTicket.getText();
+        try{
+            double jumlah = Double.parseDouble(jumlahBayarTicket.getText());
+            rekening.pembayaranDanPembelian(jumlah);
+             JOptionPane.showMessageDialog(null, "Transaksi Berhasil", "Beli Ticket", JOptionPane.INFORMATION_MESSAGE);
+        } catch(InvalidBalanceExeption ibe){
+            String msg = ibe.getMessage().toString();
+            JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
+        } catch (InvalidSaldoException ise){
+            String msg = ise.getMessage().toString();
+            JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e){
+            String msg = e.getMessage().toString();
+            JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
+        } finally {
+            String saldoAkhir = String.valueOf(rekening.getSaldo());
+            JOptionPane.showMessageDialog(null, saldoAkhir, "Saldo Anda", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println(pembelian);
+            System.out.println("Saldo sebelum beli: " + saldoAwal);
+            System.out.println("Saldo sesudah beli: " + saldoAkhir);
+            System.out.println("Penyedia Jasa: "+ penyediaJasa);
+            System.out.println("Kode Pembayaran: " + kodePembayaran);
+            System.out.println("Keterangan: " + keterangan);
+            
+        }
+        
+        
+    }//GEN-LAST:event_bayarTicketActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bayarPulsa;
+    private javax.swing.JButton bayarTicket;
+    private javax.swing.JComboBox<String> comboBoxHarga;
+    private javax.swing.JComboBox<String> comboBoxPembelian;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -355,13 +453,15 @@ public class PanelPembelian extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextField jumlahBayarTicket;
+    private javax.swing.JTextArea keteranganPulsa;
+    private javax.swing.JTextArea keteranganTicket;
+    private javax.swing.JTextField kodePembayaranTicket;
+    private javax.swing.JTextField noTelephone;
+    private javax.swing.JComboBox<String> penyediaJasaTicket;
+    private javax.swing.JComboBox<String> penyediaLayananPulsa;
+    private javax.swing.JButton pulsaKembali;
     // End of variables declaration//GEN-END:variables
 }
