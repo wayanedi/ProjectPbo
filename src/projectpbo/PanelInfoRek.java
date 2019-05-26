@@ -34,20 +34,26 @@ public class PanelInfoRek extends javax.swing.JPanel {
 
     public PanelInfoRek(Rekening rekening, ArrayList<DatabaseLog> data) {
         initComponents();
+        this.rekening = rekening;
         label_noRek.setText(rekening.getNorek());
         label_nama.setText(rekening.getNasabah().getNamaNasabah());
         this.data2=data;
-        labelNorekAwal.setText(rekening.getNorek());
-        labelNamaAwal.setText(rekening.getNasabah().getNamaNasabah());
+//        labelNorekAwal.setText(rekening.getNorek());
+//        labelNamaAwal.setText(rekening.getNasabah().getNamaNasabah());
+//
+//        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+//        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+//
+//        formatRp.setCurrencySymbol("Rp. ");
+//        formatRp.setMonetaryDecimalSeparator(',');
+//        formatRp.setGroupingSeparator('.');
+//        kursIndonesia.setDecimalFormatSymbols(formatRp);
+//        labelSaldo.setText(kursIndonesia.format(rekening.getSaldo()));
+        setProfile();
+          
         
-        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
-        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
-
-        formatRp.setCurrencySymbol("Rp. ");
-        formatRp.setMonetaryDecimalSeparator(',');
-        formatRp.setGroupingSeparator('.');
-        kursIndonesia.setDecimalFormatSymbols(formatRp);
-        labelSaldo.setText(kursIndonesia.format(rekening.getSaldo()));
+        
+        
         
 //        System.out.println(data.get(0).getKeterangan());
     
@@ -66,6 +72,20 @@ public class PanelInfoRek extends javax.swing.JPanel {
 //        DinamicPanel.add(PanelIndoRek_Mutasi,c);
 //        PanelIndoRek_Mutasi.setVisible(true);
 //        
+    }
+    
+    void setProfile(){
+        labelNorekAwal.setText(rekening.getNorek());
+        labelNamaAwal.setText(rekening.getNasabah().getNamaNasabah());
+
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+        kursIndonesia.setDecimalFormatSymbols(formatRp);
+        labelSaldo.setText(kursIndonesia.format(rekening.getSaldo()));
     }
     
    public void showUser(ArrayList<DatabaseLog> data){
@@ -428,7 +448,10 @@ public class PanelInfoRek extends javax.swing.JPanel {
         }
         
         if(jComboBox.getSelectedIndex()==2){
+            setProfile();
             jTabbedPanel.setSelectedIndex(2);
+            
+            
         }
     }//GEN-LAST:event_jComboBoxActionPerformed
 
