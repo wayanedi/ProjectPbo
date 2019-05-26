@@ -5,6 +5,7 @@
  */
 package projectpbo;
 
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -14,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author anonymous
  */
 public class PanelPembayaran extends javax.swing.JPanel {
-    
+    Database db;
     private Rekening rekening;
     /**
      * Creates new form PanelPembayaran
@@ -22,7 +23,7 @@ public class PanelPembayaran extends javax.swing.JPanel {
     public PanelPembayaran(Rekening rekening) {
         this.rekening = rekening;
         initComponents();
-       
+        
     }
     
     /**
@@ -379,6 +380,8 @@ public class PanelPembayaran extends javax.swing.JPanel {
         String Keterangan = "";
         
         try {
+            db = new Database();
+            
             System.out.println("Pembayaran PAM");
             perhitungan1();
             PLayanan = (String)BoxPilih1.getSelectedItem();
@@ -387,9 +390,14 @@ public class PanelPembayaran extends javax.swing.JPanel {
             System.out.println("Layanan: "+PLayanan);
             System.out.println("No Pelanggan: "+NoPelanggan);
             System.out.println("Keterangan: "+Keterangan);
+            
+            db.updateBalance(rekening);
+            db.insertLog(rekening,PLayanan + " - " + NoPelanggan +" - " + Keterangan, Double.parseDouble(Isi_Jumlah1.getText()), "debit");
         } catch (InvalidSaldoException ex) {
             Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InvalidBalanceExeption ex) {
+            Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Bayar1ActionPerformed
@@ -401,6 +409,8 @@ public class PanelPembayaran extends javax.swing.JPanel {
         String Keterangan = "";
         
         try {
+            db = new Database();
+            
             System.out.println("Pembayaran Internet: ");
             perhitungan2();
             PLayanan = (String)BoxPilih2.getSelectedItem();
@@ -409,9 +419,14 @@ public class PanelPembayaran extends javax.swing.JPanel {
             System.out.println("Layanan: "+PLayanan);
             System.out.println("No Pelanggan: "+NoPelanggan);
             System.out.println("Keterangan: "+Keterangan);
+            
+            db.updateBalance(rekening);
+            db.insertLog(rekening,PLayanan + " - " + NoPelanggan +" - " + Keterangan, Double.parseDouble(Isi_Jumlah2.getText()), "debit");
         } catch (InvalidSaldoException ex) {
             Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InvalidBalanceExeption ex) {
+            Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Bayar2ActionPerformed
