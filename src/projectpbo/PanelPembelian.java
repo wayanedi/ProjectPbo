@@ -15,12 +15,13 @@ public class PanelPembelian extends javax.swing.JPanel {
 
     private int menu;
     private Rekening rekening;
-
+    private Database db;
     /**
      * Creates new form PanelPembelian
      */
     public PanelPembelian(Rekening rekening) {
         this.rekening = rekening;
+         db = new Database();
         initComponents();
     }
 
@@ -261,6 +262,12 @@ public class PanelPembelian extends javax.swing.JPanel {
             }
         });
 
+        jumlahBayarTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jumlahBayarTicketActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelTicketLayout = new javax.swing.GroupLayout(jPanelTicket);
         jPanelTicket.setLayout(jPanelTicketLayout);
         jPanelTicketLayout.setHorizontalGroup(
@@ -367,6 +374,9 @@ public class PanelPembelian extends javax.swing.JPanel {
             
         try{
            rekening.pembayaranDanPembelian(hargaPulsa);
+           db.updateBalance(rekening);
+           db.insertLog(rekening, "Berhasil Melakukan Pembelian pulsa "+(String)penyediaLayananPulsa.getSelectedItem()+" ke: "+ noTelephone.getText() + " - " + keteranganPulsa.getText() , Double.parseDouble(comboBoxHarga.getSelectedItem().toString()), "debit");
+ 
            JOptionPane.showMessageDialog(null, "Transaksi Berhasil", "Beli Pulsa", JOptionPane.INFORMATION_MESSAGE);
         } catch(InvalidBalanceExeption ibe){
             String msg = ibe.getMessage().toString();
@@ -400,6 +410,9 @@ public class PanelPembelian extends javax.swing.JPanel {
         try{
             double jumlah = Double.parseDouble(jumlahBayarTicket.getText());
             rekening.pembayaranDanPembelian(jumlah);
+            db.updateBalance(rekening);
+           db.insertLog(rekening, "Berhasil Melakukan Pembelian Tiket "+(String)penyediaJasaTicket.getSelectedItem()+" kode: "+ kodePembayaranTicket.getText()+ " - " + keteranganTicket.getText() , Double.parseDouble(jumlahBayarTicket.getText()), "debit");
+ 
              JOptionPane.showMessageDialog(null, "Transaksi Berhasil", "Beli Ticket", JOptionPane.INFORMATION_MESSAGE);
         } catch(InvalidBalanceExeption ibe){
             String msg = ibe.getMessage().toString();
@@ -423,6 +436,10 @@ public class PanelPembelian extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_bayarTicketActionPerformed
+
+    private void jumlahBayarTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumlahBayarTicketActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jumlahBayarTicketActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
