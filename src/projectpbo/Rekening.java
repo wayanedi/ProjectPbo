@@ -62,6 +62,11 @@ public class Rekening {
         this.penarikan(saldo);
     }
     
+    
+    public void pembayaranDanPembelian(double saldo) throws InvalidBalanceExeption, InvalidSaldoException{
+        this.penarikan(saldo);
+    }
+    
     public DatabaseNasabah getNasabah(){
         return this.nasabah;
     }
