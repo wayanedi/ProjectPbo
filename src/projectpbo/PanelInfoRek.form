@@ -453,9 +453,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="SALDO"/>
               </Properties>
-              <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="SALDO"/>
-              </AccessibilityProperties>
             </Component>
             <Component class="java.awt.Label" name="labelNamaAwal">
               <Properties>

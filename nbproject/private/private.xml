@@ -3,18 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-            <file>file:/D:/Tefa%20semester%204/projectpbo/ProjectPbo/src/projectpbo/PanelPembayaran.java</file>
-            <file>file:/D:/Tefa%20semester%204/projectpbo/ProjectPbo/src/projectpbo/Rekening.java</file>
-            <file>file:/D:/Tefa%20semester%204/projectpbo/ProjectPbo/src/projectpbo/Login.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/KULIAH/SM%204/PBO/ProjectPBO/ProjectPbo/src/projectpbo/Login.java</file>
-            <file>file:/D:/KULIAH/SM%204/PBO/ProjectPBO/ProjectPbo/src/projectpbo/InternetBanking.java</file>
-            <file>file:/D:/KULIAH/SM%204/PBO/ProjectPBO/ProjectPbo/src/projectpbo/PanelPembelian.java</file>
->>>>>>> master
-=======
             <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/DatabaseNasabah.java</file>
             <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/Login.java</file>
             <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/ProjectPbo.java</file>
@@ -23,7 +11,6 @@
             <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/Database.java</file>
             <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/PanelPembelian.java</file>
             <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/MainMessage.java</file>
-<<<<<<< HEAD
             <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/InvalidBalanceExeption.java</file>
             <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/RekeningBiasa.java</file>
             <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/DatabaseLog.java</file>
@@ -33,17 +20,6 @@
             <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/PanelPembayaran.java</file>
             <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/RekeningBisnis.java</file>
             <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/InternetBanking.java</file>
->>>>>>> Stashed changes
-=======
-            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/RekeningBiasa.java</file>
-            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/DatabaseLog.java</file>
-            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/DataPekerja.java</file>
-            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/PanelTransfer.java</file>
-            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/PanelPembayaran.java</file>
-            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/RekeningBisnis.java</file>
-            <file>file:/F:/Kuliah%20TI/semester%204/PBO/ProjectPbo/src/projectpbo/InternetBanking.java</file>
->>>>>>> master
->>>>>>> master
         </group>
     </open-files>
 </project-private>
