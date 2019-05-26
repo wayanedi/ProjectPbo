@@ -14,7 +14,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 /**
  *
  * @author anonymous
@@ -36,6 +37,18 @@ public class PanelInfoRek extends javax.swing.JPanel {
         label_noRek.setText(rekening.getNorek());
         label_nama.setText(rekening.getNasabah().getNamaNasabah());
         this.data2=data;
+        labelNorekAwal.setText(rekening.getNorek());
+        labelNamaAwal.setText(rekening.getNasabah().getNamaNasabah());
+        
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+        kursIndonesia.setDecimalFormatSymbols(formatRp);
+        labelSaldo.setText(kursIndonesia.format(rekening.getSaldo()));
+        
 //        System.out.println(data.get(0).getKeterangan());
     
 //      setLocationRelativeTo(null);
@@ -71,8 +84,8 @@ public class PanelInfoRek extends javax.swing.JPanel {
            if(data.get(i).getTanggal().compareTo(date1)>=0 && date2.compareTo(data.get(i).getTanggal())>=0){
                 row[0]=data.get(i).getTanggal();
                 row[1]=data.get(i).getKeterangan();
-                row[2]=data.get(i).getKredit();
-                row[3]=data.get(i).getDebit();
+                row[2]=data.get(i).getNominal();
+                row[3]=data.get(i).getStatus();
                 model.addRow(row);
             }
        }
@@ -111,6 +124,12 @@ public class PanelInfoRek extends javax.swing.JPanel {
         Profile = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
+        label3 = new java.awt.Label();
+        labelNorekAwal = new java.awt.Label();
+        label4 = new java.awt.Label();
+        labelNamaAwal = new java.awt.Label();
+        label5 = new java.awt.Label();
+        labelSaldo = new java.awt.Label();
 
         setPreferredSize(new java.awt.Dimension(980, 505));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -208,7 +227,7 @@ public class PanelInfoRek extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Tanggal", "Keterangan", "Debit", "Kredit"
+                "Tanggal", "Keterangan", "Nominal", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -307,6 +326,24 @@ public class PanelInfoRek extends javax.swing.JPanel {
         jLabel19.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
         jLabel19.setText("PROFILE");
 
+        label3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        label3.setText("NO REKENING");
+
+        labelNorekAwal.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        labelNorekAwal.setText("REK");
+
+        label4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        label4.setText("SALDO");
+
+        labelNamaAwal.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        labelNamaAwal.setText("NAMA");
+
+        label5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        label5.setText("NAMA");
+
+        labelSaldo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        labelSaldo.setText("SALDO");
+
         javax.swing.GroupLayout ProfileLayout = new javax.swing.GroupLayout(Profile);
         Profile.setLayout(ProfileLayout);
         ProfileLayout.setHorizontalGroup(
@@ -318,18 +355,46 @@ public class PanelInfoRek extends javax.swing.JPanel {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ProfileLayout.createSequentialGroup()
                         .addGap(413, 413, 413)
-                        .addComponent(jLabel19)))
-                .addContainerGap(377, Short.MAX_VALUE))
+                        .addComponent(jLabel19))
+                    .addGroup(ProfileLayout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addGroup(ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addGroup(ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelNamaAwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNorekAwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(385, Short.MAX_VALUE))
         );
         ProfileLayout.setVerticalGroup(
             ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProfileLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 355, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(101, 101, 101))
+                .addGap(29, 29, 29)
+                .addGroup(ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNorekAwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ProfileLayout.createSequentialGroup()
+                        .addComponent(labelNamaAwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addGap(101, 101, 101))
+                    .addGroup(ProfileLayout.createSequentialGroup()
+                        .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
+
+        label4.getAccessibleContext().setAccessibleName("SALDO");
 
         jTabbedPanel.addTab("tab3", Profile);
         Profile.getAccessibleContext().setAccessibleName("");
@@ -400,6 +465,12 @@ public class PanelInfoRek extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPanel;
+    private java.awt.Label label3;
+    private java.awt.Label label4;
+    private java.awt.Label label5;
+    private java.awt.Label labelNamaAwal;
+    private java.awt.Label labelNorekAwal;
+    private java.awt.Label labelSaldo;
     private javax.swing.JLabel label_nama;
     private javax.swing.JLabel label_noRek;
     private javax.swing.JTable table_log;
