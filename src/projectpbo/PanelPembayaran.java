@@ -16,11 +16,13 @@ import javax.swing.JOptionPane;
 public class PanelPembayaran extends javax.swing.JPanel {
     
     private Rekening rekening;
+    private Database db;
     /**
      * Creates new form PanelPembayaran
      */
     public PanelPembayaran(Rekening rekening) {
         this.rekening = rekening;
+        db = new Database();
         initComponents();
        
     }
@@ -428,6 +430,9 @@ public class PanelPembayaran extends javax.swing.JPanel {
            double jumlah = Double.parseDouble(Isi_Jumlah1.getText());
            rekening.pembayaranDanPembelian(jumlah);
             System.out.println("Saldo sesudah bayar: "+rekening.getSaldo());
+            db.updateBalance(rekening);
+            db.insertLog(rekening, "Berhasil Melakukan Pembayaran "+(String)BoxPilih1.getSelectedItem()+" ke: "+ Isi_NoPelanggan1.getText() , jumlah, "debit");
+            JOptionPane.showMessageDialog(null, "Berhasil Melakukan Pembayaran", "Success!", JOptionPane.INFORMATION_MESSAGE);
         }catch (InvalidSaldoException ex) {
             String msg = ex.getMessage().toString();
             JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
@@ -447,6 +452,9 @@ public class PanelPembayaran extends javax.swing.JPanel {
            double jumlah = Double.parseDouble(Isi_Jumlah2.getText());
            rekening.pembayaranDanPembelian(jumlah);
             System.out.println("Saldo sesudah bayar: "+rekening.getSaldo());
+            db.updateBalance(rekening);
+            db.insertLog(rekening, "Berhasil Melakukan Pembayaran "+(String)BoxPilih2.getSelectedItem()+" ke: "+ Isi_NoPelanggan2.getText() , jumlah, "debit");
+            JOptionPane.showMessageDialog(null, "Berhasil Melakukan Pembayaran", "Success!", JOptionPane.INFORMATION_MESSAGE);
         }catch (InvalidSaldoException ex) {
             String msg = ex.getMessage().toString();
             JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
