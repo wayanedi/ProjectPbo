@@ -87,7 +87,10 @@ public class PanelInfoRek extends javax.swing.JPanel {
         kursIndonesia.setDecimalFormatSymbols(formatRp);
         labelSaldo.setText(kursIndonesia.format(rekening.getSaldo()));
     }
-    
+   
+   public void clearMutasi(){
+       ((DefaultTableModel)table_log.getModel()).setNumRows(0);
+   }
    public void showUser(ArrayList<DatabaseLog> data){
        
        DefaultTableModel model = (DefaultTableModel) table_log.getModel();
@@ -290,13 +293,8 @@ public class PanelInfoRek extends javax.swing.JPanel {
                 .addComponent(jLabel14)
                 .addGap(398, 398, 398))
             .addGroup(MutasiLayout.createSequentialGroup()
-                .addGroup(MutasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MutasiLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MutasiLayout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(149, 149, 149)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(MutasiLayout.createSequentialGroup()
                 .addGap(85, 85, 85)
@@ -307,9 +305,13 @@ public class PanelInfoRek extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DateChooser_to, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addComponent(button_tampil, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81))
+            .addGroup(MutasiLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MutasiLayout.setVerticalGroup(
             MutasiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,7 +329,7 @@ public class PanelInfoRek extends javax.swing.JPanel {
                         .addGap(8, 8, 8)
                         .addComponent(jLabel2))
                     .addComponent(button_tampil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jButton2)
@@ -414,8 +416,6 @@ public class PanelInfoRek extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        label4.getAccessibleContext().setAccessibleName("SALDO");
-
         jTabbedPanel.addTab("tab3", Profile);
         Profile.getAccessibleContext().setAccessibleName("");
         Profile.getAccessibleContext().setAccessibleDescription("");
@@ -434,16 +434,19 @@ public class PanelInfoRek extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         jTabbedPanel.setSelectedIndex(0);
+        jComboBox.setSelectedIndex(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         jTabbedPanel.setSelectedIndex(0);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxActionPerformed
         // TODO add your handling code here:
         if(jComboBox.getSelectedIndex()==1){
+            clearMutasi();
            jTabbedPanel.setSelectedIndex(1);
         }
         
