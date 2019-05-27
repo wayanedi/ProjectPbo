@@ -9,7 +9,7 @@ package projectpbo;
  *
  * @author anonymous
  */
-public class Rekening {
+public class Rekening implements TemplateRekening{
     
     private DatabaseNasabah nasabah;
     private DataPekerja dataPekerja;
@@ -25,6 +25,7 @@ public class Rekening {
         this.norek = norek;  
     }
     
+    @Override
     public void penarikan(double saldo) throws InvalidBalanceExeption, InvalidSaldoException{
         
         if(saldo>0){
@@ -40,6 +41,7 @@ public class Rekening {
         }
     }
     
+    @Override
     public void penyetoran(double saldo) throws InvalidSaldoException{
         
         if(saldo>0){
@@ -51,12 +53,14 @@ public class Rekening {
         
     }
     
+    @Override
     public void transfer(double saldo, Rekening rekening) throws InvalidBalanceExeption, InvalidSaldoException{
         
         this.penarikan(saldo);
         rekening.penyetoran(saldo);
     }
     
+    @Override
     public void transfer(double saldo, String rekTujuan) throws InvalidBalanceExeption, InvalidSaldoException{
         
         this.penarikan(saldo);
