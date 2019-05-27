@@ -123,7 +123,7 @@ public class PanelPembelian extends javax.swing.JPanel {
 
         jLabel3.setText("Penyedia Layanan");
 
-        penyediaLayananPulsa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Silahkan Pilih", "XL", "Telkomsel", "3" }));
+        penyediaLayananPulsa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XL", "Telkomsel", "3" }));
 
         jLabel5.setText("No Telephone");
 
@@ -347,11 +347,13 @@ public class PanelPembelian extends javax.swing.JPanel {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(0);
+        comboBoxPembelian.setSelectedIndex(0);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(0);
+        comboBoxPembelian.setSelectedIndex(0);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void kodePembayaranTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kodePembayaranTicketActionPerformed
@@ -373,11 +375,16 @@ public class PanelPembelian extends javax.swing.JPanel {
          String keterangan = keteranganPulsa.getText();
             
         try{
+            if(penyediaLayanan.equals("Silahkan Pilih")) throw new Exception("silahkan pilih dulu layananan nya");
            rekening.pembayaranDanPembelian(hargaPulsa);
            db.updateBalance(rekening);
-           db.insertLog(rekening, "Berhasil Melakukan Pembelian pulsa "+(String)penyediaLayananPulsa.getSelectedItem()+" ke: "+ noTelephone.getText() + " - " + keteranganPulsa.getText() , Double.parseDouble(comboBoxHarga.getSelectedItem().toString()), "debit");
+           db.insertLog(rekening, "Berhasil Melakukan Pembelian pulsa "+(String)penyediaLayananPulsa.getSelectedItem()+" ke: "+ noTelephone.getText() + " - " + keteranganPulsa.getText() , Double.parseDouble(comboBoxHarga.getSelectedItem().toString()), "pembelian");
  
            JOptionPane.showMessageDialog(null, "Transaksi Berhasil", "Beli Pulsa", JOptionPane.INFORMATION_MESSAGE);
+           jTabbedPane1.setSelectedIndex(0);
+           comboBoxPembelian.setSelectedIndex(0);
+           noTelephone.setText("");
+           keteranganPulsa.setText("");
         } catch(InvalidBalanceExeption ibe){
             String msg = ibe.getMessage().toString();
             JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
@@ -408,12 +415,18 @@ public class PanelPembelian extends javax.swing.JPanel {
          String kodePembayaran = kodePembayaranTicket.getText();
          String keterangan = keteranganTicket.getText();
         try{
+            if(penyediaJasa.equals("Silahkan Pilih")) throw new Exception("silahkan pilih dulu penyedia jasa nya");
             double jumlah = Double.parseDouble(jumlahBayarTicket.getText());
             rekening.pembayaranDanPembelian(jumlah);
             db.updateBalance(rekening);
-           db.insertLog(rekening, "Berhasil Melakukan Pembelian Tiket "+(String)penyediaJasaTicket.getSelectedItem()+" kode: "+ kodePembayaranTicket.getText()+ " - " + keteranganTicket.getText() , Double.parseDouble(jumlahBayarTicket.getText()), "debit");
+            db.insertLog(rekening, "Berhasil Melakukan Pembelian Tiket "+(String)penyediaJasaTicket.getSelectedItem()+" kode: "+ kodePembayaranTicket.getText()+ " - " + keteranganTicket.getText() , Double.parseDouble(jumlahBayarTicket.getText()), "pembelian");
  
-             JOptionPane.showMessageDialog(null, "Transaksi Berhasil", "Beli Ticket", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Transaksi Berhasil", "Beli Ticket", JOptionPane.INFORMATION_MESSAGE);
+            jTabbedPane1.setSelectedIndex(0);
+            comboBoxPembelian.setSelectedIndex(0);
+            kodePembayaranTicket.setText("");
+            jumlahBayarTicket.setText("");
+            keteranganTicket.setText("");
         } catch(InvalidBalanceExeption ibe){
             String msg = ibe.getMessage().toString();
             JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);

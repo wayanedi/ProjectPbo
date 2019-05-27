@@ -476,11 +476,16 @@ public class PanelTransfer extends javax.swing.JPanel {
                 System.out.println("sebelum di transfer: " + penerima.getSaldo());
                 rekening.transfer(Double.parseDouble(textJumlah.getText()), penerima);
                 System.out.println("setelah di transfer: " + penerima.getSaldo());
-                JOptionPane.showMessageDialog(null, "Transfer success", "Success", JOptionPane.INFORMATION_MESSAGE);
                 db.updateBalance(rekening);
                 db.updateBalance(penerima);
                 db.insertLog(rekening, "Berhasil Transfer ke: " + penerima.getNorek() +" berita: " + textBerita.getText(), Double.parseDouble(textJumlah.getText()), "debit");
                 db.insertLog(penerima, rekening.getNorek() + " mentransfer dana" +" berita: " + textBerita.getText(), Double.parseDouble(textJumlah.getText()), "kredit");
+                JOptionPane.showMessageDialog(null, "Transfer Berhasil", "Success!", JOptionPane.INFORMATION_MESSAGE);
+                textJumlah.setText("");
+                textNoRekening.setText("");
+                textBerita.setText("");
+                tabIndex.setSelectedIndex(0);
+                jComboBoxTransfer.setSelectedIndex(0);
                 
             }
             else{
@@ -529,9 +534,15 @@ public class PanelTransfer extends javax.swing.JPanel {
                     RekeningBiasa rekbis = (RekeningBiasa) rekening;
                     rekbis.transfer(Double.parseDouble(textJumlahAntarBank.getText()), textNorekAntarBank.getText());
                 }
-                JOptionPane.showMessageDialog(null, "Transfer success", "Success", JOptionPane.INFORMATION_MESSAGE);
+                
                 db.updateBalance(rekening);
                 db.insertLog(rekening, "Berhasil Transfer ke: " + comboNamaBank.getSelectedItem() +"  "+ textNorekAntarBank.getText() +" berita: " + textBeritaAntarBank.getText(), Double.parseDouble(textJumlahAntarBank.getText()), "debit");
+                JOptionPane.showMessageDialog(null, "Transfer Berhasil", "Success!", JOptionPane.INFORMATION_MESSAGE);
+                textJumlahAntarBank.setText("");
+                textNorekAntarBank.setText("");
+                textBeritaAntarBank.setText("");
+                tabIndex.setSelectedIndex(0);
+                jComboBoxTransfer.setSelectedIndex(0);
                 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Fail", JOptionPane.INFORMATION_MESSAGE);

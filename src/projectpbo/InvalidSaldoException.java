@@ -12,6 +12,6 @@ package projectpbo;
 public class InvalidSaldoException extends Exception{
     
     public InvalidSaldoException(){
-        super("uang tidak boleh negatif");
+        super("uang tidak boleh kurang dari Rp 10.000");
     }
 }

@@ -28,7 +28,7 @@ public class Rekening implements TemplateRekening{
     @Override
     public void penarikan(double saldo) throws InvalidBalanceExeption, InvalidSaldoException{
         
-        if(saldo>0){
+        if(saldo>=10000){
             if(this.saldo-saldo >0){
             this.saldo -=saldo;
             }
@@ -44,7 +44,7 @@ public class Rekening implements TemplateRekening{
     @Override
     public void penyetoran(double saldo) throws InvalidSaldoException{
         
-        if(saldo>0){
+        if(saldo>=10000){
             this.saldo +=saldo;
         }
         else{

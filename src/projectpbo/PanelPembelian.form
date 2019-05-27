@@ -86,7 +86,7 @@
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="374" max="32767" attributes="0"/>
+                      <EmptySpace pref="412" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -100,7 +100,7 @@
                           <Component id="jLabel1" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="comboBoxPembelian" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="367" max="32767" attributes="0"/>
+                      <EmptySpace pref="381" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -185,7 +185,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="377" max="32767" attributes="0"/>
+                      <EmptySpace pref="379" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -235,11 +235,10 @@
             <Component class="javax.swing.JComboBox" name="penyediaLayananPulsa">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Silahkan Pilih"/>
-                    <StringItem index="1" value="XL"/>
-                    <StringItem index="2" value="Telkomsel"/>
-                    <StringItem index="3" value="3"/>
+                  <StringArray count="3">
+                    <StringItem index="0" value="XL"/>
+                    <StringItem index="1" value="Telkomsel"/>
+                    <StringItem index="2" value="3"/>
                   </StringArray>
                 </Property>
               </Properties>

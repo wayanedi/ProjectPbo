@@ -358,11 +358,13 @@ public class PanelPembayaran extends javax.swing.JPanel {
     private void Kembali1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Kembali1ActionPerformed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(0);
+        BoxPilih3.setSelectedIndex(0);
     }//GEN-LAST:event_Kembali1ActionPerformed
 
     private void Kembali2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Kembali2ActionPerformed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(0);
+        BoxPilih3.setSelectedIndex(0);
     }//GEN-LAST:event_Kembali2ActionPerformed
 
     private void Isi_Jumlah1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Isi_Jumlah1ActionPerformed
@@ -382,17 +384,25 @@ public class PanelPembayaran extends javax.swing.JPanel {
         
         try {
             System.out.println("Pembayaran PAM");
-            perhitungan1();
             pilihanLayanan = (String)BoxPilih1.getSelectedItem();
+            if(pilihanLayanan.equals("Silahkan Pilih")) throw new Exception("silahkan pilih dulu layanannya");
             noPelanggan = Isi_NoPelanggan1.getText();
             keterangan = jTextArea2.getText();
             System.out.println("Layanan: "+pilihanLayanan);
             System.out.println("No Pelanggan: "+noPelanggan);
             System.out.println("Keterangan: "+keterangan);
+            perhitungan1();
+            jTabbedPane1.setSelectedIndex(0);
+            BoxPilih3.setSelectedIndex(0);
+            Isi_NoPelanggan1.setText("");
+            Isi_Jumlah1.setText("");
+            jTextArea2.setText("");
         } catch (InvalidSaldoException ex) {
             Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InvalidBalanceExeption ex) {
             Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_Bayar1ActionPerformed
 
@@ -403,18 +413,26 @@ public class PanelPembayaran extends javax.swing.JPanel {
         String keterangan = "";
         
         try {
-            System.out.println("Pembayaran Internet: ");
-            perhitungan2();
+            System.out.println("Pembayaran Internet: ");           
             pilihanLayanan = (String)BoxPilih2.getSelectedItem();
+            if(pilihanLayanan.equals("Silahkan Pilih")) throw new Exception("silahkan pilih dulu providernya");
             noPelanggan = Isi_NoPelanggan2.getText();
             keterangan = jTextArea1.getText();
             System.out.println("Layanan: "+pilihanLayanan);
             System.out.println("No Pelanggan: "+noPelanggan);
             System.out.println("Keterangan: "+keterangan);
+            perhitungan2();
+            jTabbedPane1.setSelectedIndex(0);
+            BoxPilih3.setSelectedIndex(0);
+            Isi_NoPelanggan2.setText("");
+            Isi_Jumlah2.setText("");
+            jTextArea1.setText("");
         } catch (InvalidSaldoException ex) {
             Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InvalidBalanceExeption ex) {
             Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_Bayar2ActionPerformed
 
@@ -431,7 +449,7 @@ public class PanelPembayaran extends javax.swing.JPanel {
            rekening.pembayaranDanPembelian(jumlah);
             System.out.println("Saldo sesudah bayar: "+rekening.getSaldo());
             db.updateBalance(rekening);
-            db.insertLog(rekening, "Berhasil Melakukan Pembayaran "+(String)BoxPilih1.getSelectedItem()+" ke: "+ Isi_NoPelanggan1.getText() , jumlah, "debit");
+            db.insertLog(rekening, "Berhasil Melakukan Pembayaran "+(String)BoxPilih1.getSelectedItem()+" ke: "+ Isi_NoPelanggan1.getText() , jumlah, "pembayaran");
             JOptionPane.showMessageDialog(null, "Berhasil Melakukan Pembayaran", "Success!", JOptionPane.INFORMATION_MESSAGE);
         }catch (InvalidSaldoException ex) {
             String msg = ex.getMessage().toString();
@@ -454,7 +472,7 @@ public class PanelPembayaran extends javax.swing.JPanel {
            rekening.pembayaranDanPembelian(jumlah);
             System.out.println("Saldo sesudah bayar: "+rekening.getSaldo());
             db.updateBalance(rekening);
-            db.insertLog(rekening, "Berhasil Melakukan Pembayaran "+(String)BoxPilih2.getSelectedItem()+" ke: "+ Isi_NoPelanggan2.getText() , jumlah, "debit");
+            db.insertLog(rekening, "Berhasil Melakukan Pembayaran "+(String)BoxPilih2.getSelectedItem()+" ke: "+ Isi_NoPelanggan2.getText() , jumlah, "pembayaran");
             JOptionPane.showMessageDialog(null, "Berhasil Melakukan Pembayaran", "Success!", JOptionPane.INFORMATION_MESSAGE);
         }catch (InvalidSaldoException ex) {
             String msg = ex.getMessage().toString();

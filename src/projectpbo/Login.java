@@ -54,7 +54,6 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
 
-        jUsername.setText("admin");
         jUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jUsernameActionPerformed(evt);
@@ -71,7 +70,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jPassword.setText("1234");
         jPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordActionPerformed(evt);
