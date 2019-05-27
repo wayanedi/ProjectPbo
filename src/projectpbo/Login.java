@@ -21,7 +21,7 @@ public class Login extends javax.swing.JFrame {
  
     private Database db;
     private Rekening rekening;
-    private ArrayList<DatabaseLog> data;
+ 
     /**
      * Creates new form Login
      */
@@ -135,8 +135,7 @@ public class Login extends javax.swing.JFrame {
                 
                 JOptionPane.showMessageDialog(null, "Login Success!", "Success!", JOptionPane.INFORMATION_MESSAGE);
                 rekening = db.getData();
-                data = db.getLog();
-                InternetBanking menu = new InternetBanking(rekening,data); //comnet
+                InternetBanking menu = new InternetBanking(rekening); //comnet
                 this.setVisible(false);
                 menu.setVisible(true);
             }

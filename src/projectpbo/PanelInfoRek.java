@@ -23,7 +23,8 @@ import java.text.DecimalFormatSymbols;
 public class PanelInfoRek extends javax.swing.JPanel {
     
     private Rekening rekening;
-    private ArrayList<DatabaseLog> data2 = new ArrayList<DatabaseLog>();
+    private ArrayList<DatabaseLog> data2;
+    Database db;
     /**
      * Creates new form PanelInfoRek
      */
@@ -32,12 +33,12 @@ public class PanelInfoRek extends javax.swing.JPanel {
 ////    PanelInfoRek_Mutasi PanelIndoRek_Mutasi;
 //    GridBagLayout layout = new GridBagLayout();
 
-    public PanelInfoRek(Rekening rekening, ArrayList<DatabaseLog> data) {
+    public PanelInfoRek(Rekening rekening) {
         initComponents();
         this.rekening = rekening;
         label_noRek.setText(rekening.getNorek());
         label_nama.setText(rekening.getNasabah().getNamaNasabah());
-        this.data2=data;
+        db = new Database();
 //        labelNorekAwal.setText(rekening.getNorek());
 //        labelNamaAwal.setText(rekening.getNasabah().getNamaNasabah());
 //
@@ -92,7 +93,6 @@ public class PanelInfoRek extends javax.swing.JPanel {
        ((DefaultTableModel)table_log.getModel()).setNumRows(0);
    }
    public void showUser(ArrayList<DatabaseLog> data){
-       
        DefaultTableModel model = (DefaultTableModel) table_log.getModel();
        model.setRowCount(0);
        Object[] row = new Object[4];
@@ -460,6 +460,8 @@ public class PanelInfoRek extends javax.swing.JPanel {
 
     private void button_tampilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_tampilActionPerformed
         // TODO add your handling code here:
+        
+        data2 = db.getLog(rekening);
         showUser(data2);
     }//GEN-LAST:event_button_tampilActionPerformed
 

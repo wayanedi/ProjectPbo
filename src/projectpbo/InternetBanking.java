@@ -24,7 +24,6 @@ public class InternetBanking extends javax.swing.JFrame {
     PanelPembelian panelPembelian;
     PanelInfoRek panelInfoRek;
     MainMessage mainMessage;
-    ArrayList<DatabaseLog> data;
     GridBagLayout layout;
     GridBagConstraints c;
     
@@ -32,18 +31,17 @@ public class InternetBanking extends javax.swing.JFrame {
      * Creates new form InternetBanking
      */
     
-    public InternetBanking(Rekening rekening, ArrayList<DatabaseLog> data){
+    public InternetBanking(Rekening rekening){
         
         initComponents();
         setLocationRelativeTo(null);
         this.rekening = rekening;
-        this.data = data;
         c = new GridBagConstraints();
         layout = new GridBagLayout();
         panelTransfer = new PanelTransfer(rekening);
         panelPembayaran = new PanelPembayaran(rekening);
         panelPembelian = new PanelPembelian(rekening);
-        panelInfoRek = new PanelInfoRek(rekening,data);
+        panelInfoRek = new PanelInfoRek(rekening);
         mainMessage = new MainMessage(rekening);
         
         DinamicPanel.setLayout(layout);
@@ -313,7 +311,7 @@ public class InternetBanking extends javax.swing.JFrame {
         ind_pembelian.setOpaque(false);     //set garis yang ada di kiri tulisan informasi biar invisible
         ind_trans.setOpaque(false);         //set garis yang ada di kiri tulisan informasi biar invisible
         
-        panelInfoRek = new PanelInfoRek(rekening,data);
+        panelInfoRek = new PanelInfoRek(rekening);
         DinamicPanel.add(panelInfoRek,c);
         setVisiblePanel(false, false, false, false, true);
     }//GEN-LAST:event_btn_informasiMousePressed

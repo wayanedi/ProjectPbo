@@ -33,7 +33,7 @@ public class Database {
     private DatabaseNasabah databaseNasabah;
     private Rekening rekening;
     private DataPekerja dataPekerja;
-    private ArrayList<DatabaseLog> data = new ArrayList<DatabaseLog>();
+    private ArrayList<DatabaseLog> data;
     
     public Database(){
         databaseNasabah = null;
@@ -133,9 +133,10 @@ public class Database {
         
     }
     
-     public ArrayList<DatabaseLog> getLog(){
+     public ArrayList<DatabaseLog> getLog(Rekening rek){
+         data = new ArrayList<DatabaseLog>();
             try{
-                sql = "SELECT * FROM log where id_user='"+this.id_user+"'";
+                sql = "SELECT * FROM log where id_user='"+rek.getNasabah().getIdUser()+"'";
                 rs = stat.executeQuery(sql);
                 while(rs.next()){
                         
