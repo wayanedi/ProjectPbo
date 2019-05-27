@@ -440,7 +440,8 @@ public class PanelPembayaran extends javax.swing.JPanel {
             String msg = ex.getMessage().toString();
             JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e){
-            System.out.println("gagal "+e.getMessage());
+            
+            JOptionPane.showMessageDialog(null, e.getMessage(), "", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     
@@ -462,7 +463,7 @@ public class PanelPembayaran extends javax.swing.JPanel {
             String msg = ex.getMessage().toString();
             JOptionPane.showMessageDialog(null, msg, "", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e){
-            System.out.println("gagal "+e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage(), "", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     

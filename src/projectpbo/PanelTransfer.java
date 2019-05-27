@@ -53,9 +53,9 @@ public class PanelTransfer extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         label6 = new java.awt.Label();
         label7 = new java.awt.Label();
-        label8 = new java.awt.Label();
+        labelNamaAntarRek = new java.awt.Label();
         label9 = new java.awt.Label();
-        label10 = new java.awt.Label();
+        labelRekAntarRekening = new java.awt.Label();
         textJumlah = new javax.swing.JTextField();
         label11 = new java.awt.Label();
         textNoRekening = new javax.swing.JTextField();
@@ -69,7 +69,7 @@ public class PanelTransfer extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         label14 = new java.awt.Label();
         label15 = new java.awt.Label();
-        label16 = new java.awt.Label();
+        labelNamaAntarBank = new java.awt.Label();
         label17 = new java.awt.Label();
         labelNoRekAntarBank = new java.awt.Label();
         textJumlahAntarBank = new javax.swing.JTextField();
@@ -168,14 +168,14 @@ public class PanelTransfer extends javax.swing.JPanel {
         label7.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label7.setText("NAMA");
 
-        label8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        label8.setText("NAMA");
+        labelNamaAntarRek.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        labelNamaAntarRek.setText("NAMA");
 
         label9.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label9.setText("Rekening Penerima");
 
-        label10.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        label10.setText("REK");
+        labelRekAntarRekening.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        labelRekAntarRekening.setText("REK");
 
         textJumlah.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
@@ -228,14 +228,14 @@ public class PanelTransfer extends javax.swing.JPanel {
                             .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelRekAntarRekening, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addComponent(btnBatal)
                                     .addGap(18, 18, 18)
                                     .addComponent(btnLanjutkan))
                                 .addComponent(textNoRekening, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelNamaAntarRek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(textJumlah)
                                 .addComponent(jScrollPane1)))))
                 .addGap(297, 297, 297))
@@ -251,11 +251,11 @@ public class PanelTransfer extends javax.swing.JPanel {
                         .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(105, 105, 105)
-                        .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(labelRekAntarRekening, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelNamaAntarRek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(textJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,8 +288,8 @@ public class PanelTransfer extends javax.swing.JPanel {
         label15.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label15.setText("NAMA");
 
-        label16.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        label16.setText("NAMA");
+        labelNamaAntarBank.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        labelNamaAntarBank.setText("NAMA");
 
         label17.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label17.setText("Rekening Penerima");
@@ -360,7 +360,7 @@ public class PanelTransfer extends javax.swing.JPanel {
                                 .addComponent(btnBatalAntarBank)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnLanjutAntarBank))
-                            .addComponent(label16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNamaAntarBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textJumlahAntarBank)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
                             .addComponent(textNorekAntarBank)
@@ -379,7 +379,7 @@ public class PanelTransfer extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelNamaAntarBank, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -417,9 +417,14 @@ public class PanelTransfer extends javax.swing.JPanel {
     private void jComboBoxTransferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTransferActionPerformed
         // TODO add your handling code here:
         if(jComboBoxTransfer.getSelectedIndex()==1){
+            
+            labelRekAntarRekening.setText(rekening.getNorek());
+            labelNamaAntarRek.setText(rekening.getNasabah().getNamaNasabah());
             tabIndex.setSelectedIndex(1);
         }
         else if (jComboBoxTransfer.getSelectedIndex()==2){
+            labelNoRekAntarBank.setText(rekening.getNorek());
+            labelNamaAntarBank.setText(rekening.getNasabah().getNamaNasabah());
             tabIndex.setSelectedIndex(2);
         }
     }//GEN-LAST:event_jComboBoxTransferActionPerformed
@@ -495,6 +500,9 @@ public class PanelTransfer extends javax.swing.JPanel {
         catch(InvalidLimitException ile){
             JOptionPane.showMessageDialog(null, ile.getMessage(), "Fail", JOptionPane.INFORMATION_MESSAGE);
         }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnLanjutkanActionPerformed
 
     private void btnLanjutAntarBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLanjutAntarBankActionPerformed
@@ -538,6 +546,10 @@ public class PanelTransfer extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, ile.getMessage(), "Fail", JOptionPane.INFORMATION_MESSAGE);
         }
         
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
     }//GEN-LAST:event_btnLanjutAntarBankActionPerformed
 
 
@@ -555,13 +567,11 @@ public class PanelTransfer extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private java.awt.Label label10;
     private java.awt.Label label11;
     private java.awt.Label label12;
     private java.awt.Label label13;
     private java.awt.Label label14;
     private java.awt.Label label15;
-    private java.awt.Label label16;
     private java.awt.Label label17;
     private java.awt.Label label19;
     private java.awt.Label label20;
@@ -572,11 +582,13 @@ public class PanelTransfer extends javax.swing.JPanel {
     private java.awt.Label label5;
     private java.awt.Label label6;
     private java.awt.Label label7;
-    private java.awt.Label label8;
     private java.awt.Label label9;
+    private java.awt.Label labelNamaAntarBank;
+    private java.awt.Label labelNamaAntarRek;
     private java.awt.Label labelNamaAwal;
     private java.awt.Label labelNoRekAntarBank;
     private java.awt.Label labelNorekAwal;
+    private java.awt.Label labelRekAntarRekening;
     private javax.swing.JPanel menuAwal;
     private javax.swing.JTabbedPane tabIndex;
     private javax.swing.JTextArea textBerita;
