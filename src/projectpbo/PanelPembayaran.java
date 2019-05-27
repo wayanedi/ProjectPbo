@@ -376,19 +376,19 @@ public class PanelPembayaran extends javax.swing.JPanel {
     }//GEN-LAST:event_Isi_NoPelanggan1ActionPerformed
 
     private void Bayar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bayar1ActionPerformed
-        String PLayanan = "";  
-        String NoPelanggan = "";
-        String Keterangan = "";
+        String pilihanLayanan = "";  
+        String noPelanggan = "";
+        String keterangan = "";
         
         try {
             System.out.println("Pembayaran PAM");
             perhitungan1();
-            PLayanan = (String)BoxPilih1.getSelectedItem();
-            NoPelanggan = Isi_NoPelanggan1.getText();
-            Keterangan = jTextArea2.getText();
-            System.out.println("Layanan: "+PLayanan);
-            System.out.println("No Pelanggan: "+NoPelanggan);
-            System.out.println("Keterangan: "+Keterangan);
+            pilihanLayanan = (String)BoxPilih1.getSelectedItem();
+            noPelanggan = Isi_NoPelanggan1.getText();
+            keterangan = jTextArea2.getText();
+            System.out.println("Layanan: "+pilihanLayanan);
+            System.out.println("No Pelanggan: "+noPelanggan);
+            System.out.println("Keterangan: "+keterangan);
         } catch (InvalidSaldoException ex) {
             Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InvalidBalanceExeption ex) {
@@ -398,19 +398,19 @@ public class PanelPembayaran extends javax.swing.JPanel {
 
     private void Bayar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bayar2ActionPerformed
         // TODO add your handling code here:
-        String PLayanan = "";
-        String NoPelanggan = "";
-        String Keterangan = "";
+        String pilihanLayanan = "";
+        String noPelanggan = "";
+        String keterangan = "";
         
         try {
             System.out.println("Pembayaran Internet: ");
             perhitungan2();
-            PLayanan = (String)BoxPilih2.getSelectedItem();
-            NoPelanggan = Isi_NoPelanggan2.getText();
-            Keterangan = jTextArea1.getText();
-            System.out.println("Layanan: "+PLayanan);
-            System.out.println("No Pelanggan: "+NoPelanggan);
-            System.out.println("Keterangan: "+Keterangan);
+            pilihanLayanan = (String)BoxPilih2.getSelectedItem();
+            noPelanggan = Isi_NoPelanggan2.getText();
+            keterangan = jTextArea1.getText();
+            System.out.println("Layanan: "+pilihanLayanan);
+            System.out.println("No Pelanggan: "+noPelanggan);
+            System.out.println("Keterangan: "+keterangan);
         } catch (InvalidSaldoException ex) {
             Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InvalidBalanceExeption ex) {
