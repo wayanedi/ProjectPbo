@@ -24,7 +24,9 @@ public class InternetBanking extends javax.swing.JFrame {
     PanelPembelian panelPembelian;
     PanelInfoRek panelInfoRek;
     MainMessage mainMessage;
-    GridBagLayout layout = new GridBagLayout();
+    ArrayList<DatabaseLog> data;
+    GridBagLayout layout;
+    GridBagConstraints c;
     
     /**
      * Creates new form InternetBanking
@@ -35,6 +37,9 @@ public class InternetBanking extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.rekening = rekening;
+        this.data = data;
+        c = new GridBagConstraints();
+        layout = new GridBagLayout();
         panelTransfer = new PanelTransfer(rekening);
         panelPembayaran = new PanelPembayaran(rekening);
         panelPembelian = new PanelPembelian(rekening);
@@ -46,9 +51,10 @@ public class InternetBanking extends javax.swing.JFrame {
 //        c.fill = GridBagConstraints.HORIZONTAL;  
         c.gridx = 0;
         c.gridy =0;
+        
         DinamicPanel.add(panelTransfer,c);
         panelTransfer.setVisible(false);
- 
+        
         DinamicPanel.add(panelPembayaran,c);
         panelPembayaran.setVisible(false);
         
@@ -307,7 +313,8 @@ public class InternetBanking extends javax.swing.JFrame {
         ind_pembelian.setOpaque(false);     //set garis yang ada di kiri tulisan informasi biar invisible
         ind_trans.setOpaque(false);         //set garis yang ada di kiri tulisan informasi biar invisible
         
-        
+        panelInfoRek = new PanelInfoRek(rekening,data);
+        DinamicPanel.add(panelInfoRek,c);
         setVisiblePanel(false, false, false, false, true);
     }//GEN-LAST:event_btn_informasiMousePressed
 
@@ -323,6 +330,8 @@ public class InternetBanking extends javax.swing.JFrame {
         ind_pembelian.setOpaque(false);
         ind_trans.setOpaque(true);
         
+        panelTransfer = new PanelTransfer(rekening);
+        DinamicPanel.add(panelTransfer,c);
         setVisiblePanel(false, true, false, false, false);
     }//GEN-LAST:event_btn_transMousePressed
 
@@ -338,6 +347,8 @@ public class InternetBanking extends javax.swing.JFrame {
         ind_pembelian.setOpaque(false);
         ind_trans.setOpaque(false);
         
+        panelPembayaran = new PanelPembayaran(rekening);
+        DinamicPanel.add(panelPembayaran,c);
         setVisiblePanel(false, false, true, false, false);
     }//GEN-LAST:event_btn_pembayaranMousePressed
 
@@ -352,6 +363,9 @@ public class InternetBanking extends javax.swing.JFrame {
         ind_pembayaran.setOpaque(false);
         ind_pembelian.setOpaque(true);
         ind_trans.setOpaque(false);
+        
+        panelPembelian = new PanelPembelian(rekening);
+         DinamicPanel.add(panelPembelian,c);
         
         setVisiblePanel(false, false, false, true, false);
     }//GEN-LAST:event_btn_pembelianMousePressed
