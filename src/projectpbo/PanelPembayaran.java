@@ -15,9 +15,8 @@ import javax.swing.JOptionPane;
  * @author anonymous
  */
 public class PanelPembayaran extends javax.swing.JPanel {
-    Database db;
-    private Rekening rekening;
     private Database db;
+    private Rekening rekening;
     /**
      * Creates new form PanelPembayaran
      */
@@ -377,24 +376,24 @@ public class PanelPembayaran extends javax.swing.JPanel {
     }//GEN-LAST:event_Isi_NoPelanggan1ActionPerformed
 
     private void Bayar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bayar1ActionPerformed
-        String PLayanan = "";  
-        String NoPelanggan = "";
-        String Keterangan = "";
+        String pLayanan = "";  
+        String noPelanggan = "";
+        String keterangan = "";
         
         try {
             db = new Database();
             
             System.out.println("Pembayaran PAM");
             perhitungan1();
-            PLayanan = (String)BoxPilih1.getSelectedItem();
-            NoPelanggan = Isi_NoPelanggan1.getText();
-            Keterangan = jTextArea2.getText();
-            System.out.println("Layanan: "+PLayanan);
-            System.out.println("No Pelanggan: "+NoPelanggan);
-            System.out.println("Keterangan: "+Keterangan);
+            pLayanan = (String)BoxPilih1.getSelectedItem();
+            noPelanggan = Isi_NoPelanggan1.getText();
+            keterangan = jTextArea2.getText();
+            System.out.println("Layanan: "+pLayanan);
+            System.out.println("No Pelanggan: "+noPelanggan);
+            System.out.println("Keterangan: "+keterangan);
             
             db.updateBalance(rekening);
-            db.insertLog(rekening,PLayanan + " - " + NoPelanggan +" - " + Keterangan, Double.parseDouble(Isi_Jumlah1.getText()), "debit");
+            db.insertLog(rekening,pLayanan + " - " + noPelanggan +" - " + keterangan, Double.parseDouble(Isi_Jumlah1.getText()), "debit");
         } catch (InvalidSaldoException ex) {
             Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InvalidBalanceExeption ex) {
@@ -406,24 +405,24 @@ public class PanelPembayaran extends javax.swing.JPanel {
 
     private void Bayar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bayar2ActionPerformed
         // TODO add your handling code here:
-        String PLayanan = "";
-        String NoPelanggan = "";
-        String Keterangan = "";
+        String pLayanan = "";
+        String noPelanggan = "";
+        String keterangan = "";
         
         try {
             db = new Database();
             
             System.out.println("Pembayaran Internet: ");
             perhitungan2();
-            PLayanan = (String)BoxPilih2.getSelectedItem();
-            NoPelanggan = Isi_NoPelanggan2.getText();
-            Keterangan = jTextArea1.getText();
-            System.out.println("Layanan: "+PLayanan);
-            System.out.println("No Pelanggan: "+NoPelanggan);
-            System.out.println("Keterangan: "+Keterangan);
+            pLayanan = (String)BoxPilih2.getSelectedItem();
+            noPelanggan = Isi_NoPelanggan2.getText();
+            keterangan = jTextArea1.getText();
+            System.out.println("Layanan: "+pLayanan);
+            System.out.println("No Pelanggan: "+noPelanggan);
+            System.out.println("Keterangan: "+keterangan);
             
             db.updateBalance(rekening);
-            db.insertLog(rekening,PLayanan + " - " + NoPelanggan +" - " + Keterangan, Double.parseDouble(Isi_Jumlah2.getText()), "debit");
+            db.insertLog(rekening,pLayanan + " - " + noPelanggan +" - " + keterangan, Double.parseDouble(Isi_Jumlah2.getText()), "debit");
         } catch (InvalidSaldoException ex) {
             Logger.getLogger(PanelPembayaran.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InvalidBalanceExeption ex) {
