@@ -471,7 +471,7 @@ public class PanelTransfer extends javax.swing.JPanel {
                     limit = rekbiasa.limitTransfer;
                 }
                 System.out.println("limit: "+ limit);
-               if(db.getNominal(rekening) >=limit) throw new InvalidLimitException();
+               if(db.getNominal(rekening)+Double.parseDouble(textJumlah.getText()) >=limit) throw new InvalidLimitException();
                 
                 System.out.println("sebelum di transfer: " + penerima.getSaldo());
                 rekening.transfer(Double.parseDouble(textJumlah.getText()), penerima);
@@ -524,7 +524,7 @@ public class PanelTransfer extends javax.swing.JPanel {
                     limit = rekbiasa.limitTransfer;
                 }
                 System.out.println("limit: "+ limit);
-               if(db.getNominal(rekening) >=limit) throw new InvalidLimitException();
+               if(db.getNominal(rekening)+Double.parseDouble(textJumlahAntarBank.getText()) >=limit) throw new InvalidLimitException();
                 
                 if(rekening instanceof RekeningBisnis){
                     RekeningBisnis rekbis = (RekeningBisnis) rekening;
